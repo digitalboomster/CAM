@@ -10,6 +10,12 @@ import type { Workspace } from "@/lib/types";
 
 const REGULATOR_LABELS = new Set<string>(REGULATOR_TEMPLATES.map((t) => t.label));
 
+const DEMO_REGULATOR_EXPORTS: ExportLogEntry[] = [
+  { id: "demo-reg-1", at: "10:24 AM", label: "SEC Quarterly Concentration", workspaceId: "demo-alpha", exportedBy: "Compliance", createdAt: new Date().toISOString() },
+  { id: "demo-reg-2", at: "Mar 7", label: "SEC Liquidity Disclosure", workspaceId: "demo-alpha", exportedBy: "Compliance", createdAt: new Date(Date.now() - 864e5).toISOString() },
+  { id: "demo-reg-3", at: "Mar 4", label: "AUM Reconciliation", workspaceId: "demo-alpha", exportedBy: "Compliance", createdAt: new Date(Date.now() - 4 * 864e5).toISOString() },
+];
+
 export default function RegulatorReportingPage() {
   const [exports, setExports] = useState<ExportLogEntry[]>([]);
   const [workspaces, setWorkspaces] = useState<Workspace[]>([]);
@@ -29,10 +35,13 @@ export default function RegulatorReportingPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  const regulatorExports = exports.filter((e) => REGULATOR_LABELS.has(e.label));
+  const regulatorExportsRaw = exports.filter((e) => REGULATOR_LABELS.has(e.label));
+  const regulatorExports = regulatorExportsRaw.length > 0 ? regulatorExportsRaw : DEMO_REGULATOR_EXPORTS;
+  const isDemoRegulatorExports = regulatorExportsRaw.length === 0;
 
   const workspaceName = (id: string | undefined) => {
     if (!id) return "—";
+    if (id.startsWith("demo-")) return "Demo workspace";
     const w = workspaces.find((x) => x.id === id);
     return w?.name ?? id.slice(0, 8) + "…";
   };
@@ -146,10 +155,11 @@ export default function RegulatorReportingPage() {
                 Try again
               </button>
             </div>
-          ) : regulatorExports.length === 0 ? (
-            <p className="text-slate-600">No regulator exports yet. Use Generate & export above and complete an export from the workspace.</p>
           ) : (
             <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
+              {isDemoRegulatorExports && (
+                <p className="text-xs text-slate-400 px-4 py-2 border-b border-slate-100">Demo data — complete an export from Document Intelligence to see real entries.</p>
+              )}
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-slate-100 bg-white">

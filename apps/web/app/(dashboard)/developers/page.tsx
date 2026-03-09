@@ -1,6 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import ModuleShell from "@/components/ModuleShell";
+
+const SUPPORT_EMAIL = "api@cordros.com";
+const REQUEST_TEMPLATE = `Subject: Nautilus API key request
+
+Organization:
+Use case:
+Environment (sandbox/production):`;
 
 /** Mock API Storefront (Nautilus V1: Marquee blueprint). */
 const ENDPOINTS = [
@@ -23,6 +31,30 @@ const RATE_LIMITS = [
 ];
 
 export default function DevelopersPage() {
+  const [copied, setCopied] = useState<"email" | "template" | null>(null);
+
+  const copySupportEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(SUPPORT_EMAIL);
+      setCopied("email");
+      setTimeout(() => setCopied(null), 2500);
+    } catch {
+      window.open(`mailto:${SUPPORT_EMAIL}?subject=Nautilus%20API%20key%20request`, "_blank");
+      setCopied("email");
+      setTimeout(() => setCopied(null), 2500);
+    }
+  };
+
+  const copyRequestTemplate = async () => {
+    try {
+      await navigator.clipboard.writeText(REQUEST_TEMPLATE);
+      setCopied("template");
+      setTimeout(() => setCopied(null), 2500);
+    } catch {
+      setCopied(null);
+    }
+  };
+
   return (
     <ModuleShell
       title="API Storefront"
@@ -45,14 +77,25 @@ export default function DevelopersPage() {
               <span className="text-slate-400 mr-2">Example key</span>
               <code className="font-mono">nak_live_••••••••••••••••</code>
             </div>
-            <button
-              type="button"
-              onClick={() => alert("Contact Cordros to request API keys and developer access.")}
-              className="mt-4 px-4 py-2 rounded-lg text-sm font-semibold bg-nautilus-accent text-white hover:bg-nautilus-accent-hover shadow-sm"
-            >
-              Request API key
-            </button>
-            <p className="text-xs text-slate-400 mt-2">Demo UI — this button does not send requests.</p>
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={copySupportEmail}
+                className="px-4 py-2 rounded-lg text-sm font-semibold bg-nautilus-accent text-white hover:bg-nautilus-accent-hover shadow-sm"
+              >
+                {copied === "email" ? "Copied" : "Copy support email"}
+              </button>
+              <button
+                type="button"
+                onClick={copyRequestTemplate}
+                className="px-4 py-2 rounded-lg text-sm font-medium border border-slate-200 text-slate-700 hover:bg-slate-50"
+              >
+                {copied === "template" ? "Copied" : "Copy request template"}
+              </button>
+            </div>
+            {copied && (
+              <p className="text-xs text-emerald-600 mt-2">Copied to clipboard — email us to request keys.</p>
+            )}
           </div>
 
           <div className="rounded-xl border border-slate-100 bg-white p-5">

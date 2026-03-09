@@ -194,7 +194,7 @@ export default function WorkspaceGrid({
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-slate-100">
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-slate-400 uppercase tracking-wider min-w-[240px] sticky left-0 bg-slate-50/80 backdrop-blur-sm z-10">
+                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-slate-400 uppercase tracking-wider min-w-[240px] sticky left-0 bg-slate-50 z-20 shadow-[4px_0_6px_-2px_rgba(0,0,0,0.06)]">
                   Source
                 </th>
                 {visibleColumns.map((col) => (
@@ -242,8 +242,8 @@ export default function WorkspaceGrid({
                     key={row.id}
                     className="group/row hover:bg-slate-50/60 transition-colors"
                   >
-                    {/* Source cell — sticky */}
-                    <td className="px-4 py-3 sticky left-0 bg-white group-hover/row:bg-slate-50/60 transition-colors z-10 border-r border-slate-50">
+                    {/* Source cell — sticky; higher z and shadow so scrolled columns don't overlap */}
+                    <td className="px-4 py-3 sticky left-0 z-20 bg-white group-hover/row:bg-slate-50/95 transition-colors border-r border-slate-100 shadow-[4px_0_6px_-2px_rgba(0,0,0,0.06)]">
                       <SourceCell row={row} />
                     </td>
 
