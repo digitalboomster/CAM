@@ -34,9 +34,8 @@ export default function Home() {
           </span>
 
           <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.05] max-w-3xl text-slate-900">
-            The{" "}
             <span className="text-nautilus-accent">
-              Aladdin of Africa
+              The Aladdin of Africa
             </span>
           </h1>
 
