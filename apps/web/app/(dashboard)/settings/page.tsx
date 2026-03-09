@@ -105,7 +105,9 @@ export default function SettingsPage() {
           <p className="text-xs text-slate-500 mt-1">
             Ethics middleware that scans all underlying assets for AAOIFI (Shariah) or ESG mandate compliance. Zero-error Halal fund management and real-time ethical auditing.
           </p>
-          <span className="inline-block mt-2 px-2 py-1 rounded text-xs font-medium bg-slate-100 text-slate-600">Coming soon</span>
+          <span className="inline-block mt-2 px-2.5 py-1 rounded-md text-xs font-medium bg-teal-50 text-teal-700 border border-teal-200">
+            Coming soon
+          </span>
         </div>
       </div>
     </ModuleShell>
