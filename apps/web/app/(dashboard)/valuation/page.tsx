@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ModuleShell from "@/components/ModuleShell";
 import Link from "next/link";
+import { ModuleIcon } from "@/components/ModuleIcons";
 
 const COMPS = [
   { name: "Dangote Cement", ticker: "DANGCEM", ev: "₦3.4tn", ebitda: "₦310bn", evEbitda: "11.0x", pe: "14.2x", ey: "7.0%", premium: "—" },
@@ -161,7 +162,9 @@ export default function ValuationPage() {
                     "Exit multiple benchmarked to sector comps",
                   ].map((a, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-[10px] font-bold mt-0.5">✓</span>
+                      <span className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                      <ModuleIcon name="check" className="w-2.5 h-2.5" />
+                    </span>
                       {a}
                     </li>
                   ))}

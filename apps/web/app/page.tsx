@@ -1,4 +1,15 @@
 import Link from "next/link";
+import { ModuleIcon } from "@/components/ModuleIcons";
+import type { ModuleIconName } from "@/lib/types";
+
+const VALUE_PROPS: { iconKey: ModuleIconName; label: string; desc: string; href: string }[] = [
+  { iconKey: "document", label: "Document Intelligence", desc: "Extract, compare, and cite across any document — IC memos, DD, M&A, earnings.", href: "/workspace" },
+  { iconKey: "robot", label: "Augmented Analyst", desc: "Co-Pilot surfaces traceable, citation-backed answers from your source documents.", href: "/workspace" },
+  { iconKey: "lightning", label: "Pre-Trade Compliance", desc: "Hard-coded kill-switch. Every trade checked against SEC limits and fund mandate.", href: "/oms" },
+  { iconKey: "chart", label: "Analytics & Attribution", desc: "Performance attribution, risk metrics, VaR, tracking error, and Sharpe ratio.", href: "/analytics" },
+  { iconKey: "scale", label: "Portfolio Rebalancing", desc: "Drift detection, simulation, and one-click order generation for mandate alignment.", href: "/rebalancing" },
+  { iconKey: "building", label: "Institution Hub", desc: "Client register, mandate adherence, and automated IC pack generation.", href: "/institution-hub" },
+];
 
 export default function Home() {
   return (
@@ -81,50 +92,15 @@ export default function Home() {
 
           {/* Value props */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
-            {[
-              {
-                icon: "📄",
-                label: "Document Intelligence",
-                desc: "Extract, compare, and cite across any document — IC memos, DD, M&A, earnings.",
-                href: "/workspace",
-              },
-              {
-                icon: "🤖",
-                label: "Augmented Analyst",
-                desc: "Co-Pilot surfaces traceable, citation-backed answers from your source documents.",
-                href: "/workspace",
-              },
-              {
-                icon: "⚡",
-                label: "Pre-Trade Compliance",
-                desc: "Hard-coded kill-switch. Every trade checked against SEC limits and fund mandate.",
-                href: "/oms",
-              },
-              {
-                icon: "📊",
-                label: "Analytics & Attribution",
-                desc: "Performance attribution, risk metrics, VaR, tracking error, and Sharpe ratio.",
-                href: "/analytics",
-              },
-              {
-                icon: "⚖️",
-                label: "Portfolio Rebalancing",
-                desc: "Drift detection, simulation, and one-click order generation for mandate alignment.",
-                href: "/rebalancing",
-              },
-              {
-                icon: "🏛️",
-                label: "Institution Hub",
-                desc: "Client register, mandate adherence, and automated IC pack generation.",
-                href: "/institution-hub",
-              },
-            ].map((v) => (
+            {VALUE_PROPS.map((v) => (
               <Link
                 key={v.label}
                 href={v.href}
                 className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 text-left hover:border-nautilus-accent/30 hover:bg-nautilus-accent-muted/30 transition-colors group"
               >
-                <span className="text-2xl mb-3 block">{v.icon}</span>
+                <span className="text-slate-700 mb-3 block">
+                  <ModuleIcon name={v.iconKey} className="w-8 h-8" />
+                </span>
                 <p className="text-sm font-semibold text-slate-800 mb-1 group-hover:text-nautilus-accent transition-colors">{v.label}</p>
                 <p className="text-xs text-slate-500 leading-relaxed">{v.desc}</p>
               </Link>

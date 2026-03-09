@@ -6,6 +6,7 @@ import Link from "next/link";
 import * as api from "@/lib/api";
 import { REPORT_TEMPLATES } from "@/lib/reportTemplates";
 import type { ExportLogEntry, Workspace } from "@/lib/types";
+import { ModuleIcon } from "@/components/ModuleIcons";
 
 // ── Mock recent reports ──────────────────────────────────────────────────────
 
@@ -202,7 +203,7 @@ export default function ReportsPage() {
         {activeTab === "templates" && (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <div>
+                  <div>
                 <h2 className="font-semibold text-slate-900">Report Templates</h2>
                 <p className="text-sm text-slate-500 mt-0.5">AI-powered templates that extract, cite, and structure your documents.</p>
               </div>
@@ -223,7 +224,7 @@ export default function ReportsPage() {
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl">{t.icon}</span>
+                        <ModuleIcon name={t.iconKey} className={`w-8 h-8 shrink-0 ${colors.text}`} />
                         <h3 className={`font-semibold ${colors.text}`}>{t.label}</h3>
                       </div>
                       <span className="text-[10px] text-slate-400 font-medium shrink-0">{t.estimatedPages}</span>
@@ -274,7 +275,7 @@ export default function ReportsPage() {
                             : "border-slate-200 bg-slate-50/60 text-slate-700 hover:border-slate-300"
                         }`}
                       >
-                        <span className="text-xl">{t.icon}</span>
+                        <ModuleIcon name={t.iconKey} className="w-6 h-6 shrink-0" />
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-semibold leading-snug">{t.label}</p>
                           <p className="text-xs text-slate-500 leading-snug truncate">{t.estimatedPages}</p>
@@ -288,38 +289,38 @@ export default function ReportsPage() {
                     );
                   })}
                 </div>
-              </div>
-              <div>
+            </div>
+            <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Workspace</label>
-                <select
-                  value={workspaces.length === 0 ? "" : generateWorkspaceId}
-                  onChange={(e) => setGenerateWorkspaceId(e.target.value)}
+              <select
+                value={workspaces.length === 0 ? "" : generateWorkspaceId}
+                onChange={(e) => setGenerateWorkspaceId(e.target.value)}
                   className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm focus:ring-2 focus:ring-teal-400/30 focus:border-teal-400 outline-none bg-white"
-                >
-                  {workspaces.length === 0 ? (
-                    <option value="">No workspaces — create one in Document Intelligence</option>
-                  ) : (
-                    workspaces.map((w) => (
+              >
+                {workspaces.length === 0 ? (
+                  <option value="">No workspaces — create one in Document Intelligence</option>
+                ) : (
+                  workspaces.map((w) => (
                       <option key={w.id} value={w.id}>{w.name}</option>
-                    ))
-                  )}
-                </select>
+                  ))
+                )}
+              </select>
                 {workspaces.length === 0 && (
                   <p className="text-xs text-slate-500 mt-1.5">
                     <Link href="/workspace" className="text-teal-600 hover:underline">Create a workspace first →</Link>
                   </p>
                 )}
-              </div>
+            </div>
               <div className="pt-1">
-                <Link
-                  href={generateHref}
+            <Link
+              href={generateHref}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-nautilus-accent text-white hover:bg-nautilus-accent-hover shadow-sm"
-                >
+            >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   Open in Document Intelligence
-                </Link>
+            </Link>
                 <p className="text-xs text-slate-400 mt-2">Opens Co-Pilot with the selected template as the starting query. Export as PDF to log the report.</p>
               </div>
             </div>
@@ -365,15 +366,15 @@ export default function ReportsPage() {
               )}
             </div>
 
-            {loading ? (
+        {loading ? (
               <div className="flex items-center gap-2 text-slate-500 text-sm py-4">
                 <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
                 Loading audit log…
               </div>
             ) : (
               <div className="rounded-xl border border-slate-100 bg-white overflow-hidden shadow-sm">
-                <table className="w-full text-sm">
-                  <thead>
+            <table className="w-full text-sm">
+              <thead>
                     <tr className="border-b border-slate-100 bg-white/80">
                       <th className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Date</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Report</th>
@@ -383,9 +384,9 @@ export default function ReportsPage() {
                       <th className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Status</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Audit ID</th>
                       <th className="text-right px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+                </tr>
+              </thead>
+              <tbody>
                     {allExports.map((e) => (
                       <tr key={e.id} className="border-b border-slate-100 hover:bg-slate-50/60 transition-colors">
                         <td className="px-4 py-3 text-slate-500 text-xs whitespace-nowrap">{e.date}</td>
@@ -400,17 +401,17 @@ export default function ReportsPage() {
                         </td>
                         <td className="px-4 py-3"><StatusBadge status={e.status} /></td>
                         <td className="px-4 py-3 font-mono text-xs text-slate-400" title="Stable audit ID">{e.id.slice(0, 8)}…</td>
-                        <td className="px-4 py-3 text-right">
+                    <td className="px-4 py-3 text-right">
                           <button className="text-xs font-medium text-teal-600 hover:underline">
                             Download
                           </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
 
             <p className="text-xs text-slate-400 flex items-center gap-1.5">
               <svg className="w-3.5 h-3.5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

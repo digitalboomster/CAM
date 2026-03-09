@@ -1,3 +1,22 @@
+/** Icon keys for module/report UI — no emojis; use ModuleIcon component. */
+export type ModuleIconName =
+  | "document"
+  | "chart"
+  | "lightning"
+  | "scale"
+  | "diamond"
+  | "globe"
+  | "building"
+  | "refresh"
+  | "check"
+  | "folder"
+  | "clipboard"
+  | "search"
+  | "box"
+  | "export"
+  | "upload"
+  | "robot";
+
 export type CellStatus = "reading" | "snippet" | "no-answer";
 
 export interface WorkspaceCell {

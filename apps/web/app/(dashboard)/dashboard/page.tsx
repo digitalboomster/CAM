@@ -6,6 +6,8 @@ import Link from "next/link";
 import * as api from "@/lib/api";
 import { useFund } from "@/contexts/FundContext";
 import { getMockNav } from "@/lib/mockNav";
+import { ModuleIcon } from "@/components/ModuleIcons";
+import type { ModuleIconName } from "@/lib/types";
 
 // ── Mock data ────────────────────────────────────────────────────────────────
 
@@ -36,15 +38,15 @@ const RECENT_ACTIVITY = [
   { time: "Mar 6", user: "SA", action: "Mandate adherence report generated for Stanbic IBTC", module: "Institution Hub", type: "report" },
 ];
 
-const MODULE_STATUS = [
-  { name: "Document Intelligence", href: "/workspace", status: "live", icon: "📄", desc: "7 documents indexed" },
-  { name: "Analytics", href: "/analytics", status: "live", icon: "📊", desc: "As of Mar 8, 2026" },
-  { name: "OMS", href: "/oms", status: "live", icon: "⚡", desc: "Pre-trade compliance armed" },
-  { name: "Rebalancing", href: "/rebalancing", status: "live", icon: "⚖️", desc: "2 positions in breach" },
-  { name: "Valuation", href: "/valuation", status: "live", icon: "💎", desc: "DCF + comps ready" },
-  { name: "Market Intelligence", href: "/market-intelligence", status: "live", icon: "🌍", desc: "Latest: Feb 2026 research" },
-  { name: "Institution Hub", href: "/institution-hub", status: "live", icon: "🏛️", desc: "5 mandates monitored" },
-  { name: "DocuFlow", href: "/docuflow", status: "live", icon: "🔄", desc: "4 documents processed" },
+const MODULE_STATUS: { name: string; href: string; status: string; iconKey: ModuleIconName; desc: string }[] = [
+  { name: "Document Intelligence", href: "/workspace", status: "live", iconKey: "document", desc: "7 documents indexed" },
+  { name: "Analytics", href: "/analytics", status: "live", iconKey: "chart", desc: "As of Mar 8, 2026" },
+  { name: "OMS", href: "/oms", status: "live", iconKey: "lightning", desc: "Pre-trade compliance armed" },
+  { name: "Rebalancing", href: "/rebalancing", status: "live", iconKey: "scale", desc: "2 positions in breach" },
+  { name: "Valuation", href: "/valuation", status: "live", iconKey: "diamond", desc: "DCF + comps ready" },
+  { name: "Market Intelligence", href: "/market-intelligence", status: "live", iconKey: "globe", desc: "Latest: Feb 2026 research" },
+  { name: "Institution Hub", href: "/institution-hub", status: "live", iconKey: "building", desc: "5 mandates monitored" },
+  { name: "DocuFlow", href: "/docuflow", status: "live", iconKey: "refresh", desc: "4 documents processed" },
 ];
 
 const FUND_METRICS: Record<string, { aum: string; positions: number; ytd: string; ytdUp: boolean; inception: string }> = {
@@ -79,16 +81,16 @@ function AlertBadge({ level }: { level: string }) {
 }
 
 function ActivityIcon({ type }: { type: string }) {
-  const base = "w-7 h-7 rounded-full flex items-center justify-center text-xs shrink-0";
+  const base = "w-7 h-7 rounded-full flex items-center justify-center shrink-0";
   switch (type) {
-    case "export": return <div className={`${base} bg-violet-100 text-violet-700`}>↗</div>;
-    case "compliance": return <div className={`${base} bg-emerald-100 text-emerald-700`}>✓</div>;
-    case "workspace": return <div className={`${base} bg-nautilus-accent-muted text-nautilus-accent`}>📁</div>;
-    case "rebalance": return <div className={`${base} bg-blue-100 text-blue-700`}>⚖</div>;
-    case "upload": return <div className={`${base} bg-slate-100 text-slate-600`}>↑</div>;
-    case "valuation": return <div className={`${base} bg-amber-100 text-amber-700`}>💎</div>;
-    case "report": return <div className={`${base} bg-indigo-100 text-indigo-700`}>📋</div>;
-    default: return <div className={`${base} bg-slate-100 text-slate-500`}>·</div>;
+    case "export": return <div className={`${base} bg-violet-100 text-violet-700`}><ModuleIcon name="export" className="w-3.5 h-3.5" /></div>;
+    case "compliance": return <div className={`${base} bg-emerald-100 text-emerald-700`}><ModuleIcon name="check" className="w-3.5 h-3.5" /></div>;
+    case "workspace": return <div className={`${base} bg-nautilus-accent-muted text-nautilus-accent`}><ModuleIcon name="folder" className="w-3.5 h-3.5" /></div>;
+    case "rebalance": return <div className={`${base} bg-blue-100 text-blue-700`}><ModuleIcon name="scale" className="w-3.5 h-3.5" /></div>;
+    case "upload": return <div className={`${base} bg-slate-100 text-slate-600`}><ModuleIcon name="upload" className="w-3.5 h-3.5" /></div>;
+    case "valuation": return <div className={`${base} bg-amber-100 text-amber-700`}><ModuleIcon name="diamond" className="w-3.5 h-3.5" /></div>;
+    case "report": return <div className={`${base} bg-indigo-100 text-indigo-700`}><ModuleIcon name="clipboard" className="w-3.5 h-3.5" /></div>;
+    default: return <div className={`${base} bg-slate-100 text-slate-500`}><span className="w-1 h-1 rounded-full bg-current" /></div>;
   }
 }
 
@@ -264,7 +266,7 @@ export default function DashboardPage() {
                 href={m.href}
                 className="flex flex-col items-center text-center px-3 py-4 hover:bg-nautilus-accent-muted/30 transition-colors group"
               >
-                <span className="text-2xl mb-1.5">{m.icon}</span>
+                <ModuleIcon name={m.iconKey} className="w-8 h-8 mb-1.5 text-slate-700" />
                 <p className="text-xs font-semibold text-slate-700 group-hover:text-nautilus-accent leading-tight">{m.name}</p>
                 <p className="text-[10px] text-slate-400 mt-0.5 leading-tight">{m.desc}</p>
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -364,7 +366,10 @@ export default function DashboardPage() {
             ) : complianceResult ? (
               <div className="mt-4 space-y-3">
                 <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
-                  <p className="text-sm font-semibold text-emerald-800">✓ All checks passed</p>
+                  <p className="flex items-center gap-2 text-sm font-semibold text-emerald-800">
+                    <ModuleIcon name="check" className="w-4 h-4 shrink-0" />
+                    All checks passed
+                  </p>
                   <p className="text-sm text-emerald-700 mt-1">{complianceResult.message}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm">
