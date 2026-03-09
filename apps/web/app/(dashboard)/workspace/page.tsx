@@ -335,7 +335,7 @@ function WorkspacePageContent() {
           <button
             type="button"
             onClick={handleNewWorkspace}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-teal-600 text-white hover:bg-teal-700 shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-nautilus-accent text-white hover:bg-nautilus-accent-hover shadow-md"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />

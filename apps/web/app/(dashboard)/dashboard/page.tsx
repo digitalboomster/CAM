@@ -327,7 +327,7 @@ export default function DashboardPage() {
             <div className="pt-3 border-t border-slate-100">
               <h3 className="text-sm font-semibold text-slate-800 mb-2">Quick actions</h3>
               <div className="flex flex-wrap gap-2">
-                <Link href="/workspace" className="px-3 py-1.5 rounded-lg text-xs font-medium bg-teal-600 text-white hover:bg-teal-700">Open Co-Pilot</Link>
+                <Link href="/workspace" className="px-3 py-1.5 rounded-lg text-xs font-medium bg-nautilus-accent text-white hover:bg-nautilus-accent-hover">Open Co-Pilot</Link>
                 <Link href="/oms" className="px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 text-slate-700 hover:bg-slate-50">New order</Link>
                 <Link href="/rebalancing" className="px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 text-slate-700 hover:bg-slate-50">Rebalance</Link>
                 <Link href="/reports" className="px-3 py-1.5 rounded-lg text-xs font-medium border border-slate-200 text-slate-700 hover:bg-slate-50">Export log</Link>

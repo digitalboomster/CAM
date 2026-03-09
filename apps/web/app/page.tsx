@@ -18,7 +18,7 @@ export default function Home() {
           </div>
           <Link
             href="/dashboard"
-            className="px-4 py-2 rounded-lg text-sm font-medium bg-teal-600 text-white hover:bg-teal-700 shadow-sm transition-colors"
+            className="px-4 py-2 rounded-lg text-sm font-medium bg-nautilus-accent text-white hover:bg-nautilus-accent-hover shadow-sm transition-colors"
           >
             Enter platform →
           </Link>
@@ -52,7 +52,7 @@ export default function Home() {
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
             <Link
               href="/dashboard"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-bold bg-teal-600 text-white hover:bg-teal-700 shadow-md shadow-teal-600/20 transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-bold bg-nautilus-accent text-white hover:bg-nautilus-accent-hover shadow-md transition-colors"
             >
               Enter Nautilus
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
