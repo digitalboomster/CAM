@@ -310,13 +310,13 @@ function WorkspacePageContent() {
             </svg>
           </div>
           <p className="font-semibold text-slate-900">Could not connect to database</p>
-          <p className="text-sm text-slate-500 mt-2">Run in <code className="bg-slate-100 px-1 rounded">apps/web</code>:</p>
+          <p className="text-sm text-slate-500 mt-2">From repo root or <code className="bg-slate-100 px-1 rounded">apps/web</code> run:</p>
           <code className="block mt-2 bg-slate-100 p-2 rounded text-left text-sm">npm run db:setup</code>
-          <p className="text-xs text-slate-400 mt-3">Then refresh this page.</p>
+          <p className="text-xs text-slate-400 mt-3">Then click Try again below. If it still fails, restart the dev server.</p>
           <button
             type="button"
             onClick={() => { setApiOk(true); loadWorkspaces(); }}
-            className="mt-4 px-4 py-2 rounded-lg text-sm font-medium bg-slate-100 text-slate-700 hover:bg-slate-200"
+            className="mt-4 px-4 py-2 rounded-lg text-sm font-medium bg-nautilus-accent text-white hover:bg-nautilus-accent-hover"
           >
             Try again
           </button>
