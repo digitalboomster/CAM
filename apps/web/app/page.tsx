@@ -8,7 +8,7 @@ export default function Home() {
       <header className="border-b border-slate-200 bg-white sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-teal-600 text-white font-bold text-sm flex items-center justify-center shadow-sm">
+            <div className="w-8 h-8 rounded-lg bg-nautilus-accent text-white font-bold text-sm flex items-center justify-center shadow-sm">
               N
             </div>
             <div>
@@ -28,14 +28,14 @@ export default function Home() {
       {/* Hero */}
       <main className="flex-1 flex flex-col">
         <section className="flex-1 flex flex-col items-center justify-center px-6 py-20 text-center max-w-5xl mx-auto w-full">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-nautilus-accent-muted text-nautilus-accent border border-nautilus-accent/30 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-nautilus-accent" />
             Cordros Asset Management
           </span>
 
           <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.05] max-w-3xl text-slate-900">
             The{" "}
-            <span className="text-teal-600">
+            <span className="text-nautilus-accent">
               Aladdin of Africa
             </span>
           </h1>
@@ -123,10 +123,10 @@ export default function Home() {
               <Link
                 key={v.label}
                 href={v.href}
-                className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 text-left hover:border-teal-300 hover:bg-teal-50/40 transition-colors group"
+                className="rounded-xl border border-slate-200 bg-slate-50/60 p-5 text-left hover:border-nautilus-accent/30 hover:bg-nautilus-accent-muted/30 transition-colors group"
               >
                 <span className="text-2xl mb-3 block">{v.icon}</span>
-                <p className="text-sm font-semibold text-slate-800 mb-1 group-hover:text-teal-700 transition-colors">{v.label}</p>
+                <p className="text-sm font-semibold text-slate-800 mb-1 group-hover:text-nautilus-accent transition-colors">{v.label}</p>
                 <p className="text-xs text-slate-500 leading-relaxed">{v.desc}</p>
               </Link>
             ))}

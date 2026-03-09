@@ -63,9 +63,9 @@ const ALERTS = [
 
 function KpiCard({ label, value, sub, accent }: { label: string; value: string; sub?: string; accent?: boolean }) {
   return (
-    <div className={`rounded-xl border p-4 shadow-sm ${accent ? "border-teal-200 bg-teal-50/40" : "border-slate-200 bg-white"}`}>
+    <div className={`rounded-xl border p-4 shadow-sm ${accent ? "border-nautilus-accent/20 bg-nautilus-accent-muted/30" : "border-slate-200 bg-white"}`}>
       <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">{label}</p>
-      <p className={`mt-1 text-2xl font-bold ${accent ? "text-teal-700" : "text-slate-900"}`}>{value}</p>
+      <p className={`mt-1 text-2xl font-bold ${accent ? "text-nautilus-accent" : "text-slate-900"}`}>{value}</p>
       {sub && <p className="text-xs text-slate-500 mt-0.5">{sub}</p>}
     </div>
   );
@@ -83,7 +83,7 @@ function ActivityIcon({ type }: { type: string }) {
   switch (type) {
     case "export": return <div className={`${base} bg-violet-100 text-violet-700`}>↗</div>;
     case "compliance": return <div className={`${base} bg-emerald-100 text-emerald-700`}>✓</div>;
-    case "workspace": return <div className={`${base} bg-teal-100 text-teal-700`}>📁</div>;
+    case "workspace": return <div className={`${base} bg-nautilus-accent-muted text-nautilus-accent`}>📁</div>;
     case "rebalance": return <div className={`${base} bg-blue-100 text-blue-700`}>⚖</div>;
     case "upload": return <div className={`${base} bg-slate-100 text-slate-600`}>↑</div>;
     case "valuation": return <div className={`${base} bg-amber-100 text-amber-700`}>💎</div>;
@@ -171,12 +171,12 @@ export default function DashboardPage() {
           <KpiCard
             label="Workspaces"
             value={workspaceCount === null ? "—" : String(workspaceCount)}
-            sub="Document Intelligence"
+            sub={workspaceCount === 0 ? "Create in Document Intelligence" : "Document Intelligence"}
           />
           <KpiCard
             label="Exports"
             value={exportCount === null ? "—" : String(exportCount)}
-            sub="Memos & reports"
+            sub={exportCount === 0 ? "Exports will appear here" : "Memos & reports"}
           />
         </div>
 
@@ -205,7 +205,7 @@ export default function DashboardPage() {
           <div className="lg:col-span-2 rounded-xl border border-slate-200 bg-white shadow-sm">
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">
               <h2 className="font-semibold text-slate-900 text-sm">NGX Top Movers</h2>
-              <Link href="/analytics" className="text-xs text-teal-600 hover:underline">Full analytics →</Link>
+              <Link href="/analytics" className="text-xs text-nautilus-accent hover:underline">Full analytics →</Link>
             </div>
             <div className="divide-y divide-slate-50">
               {TOP_MOVERS.map((m) => (
@@ -262,10 +262,10 @@ export default function DashboardPage() {
               <Link
                 key={m.name}
                 href={m.href}
-                className="flex flex-col items-center text-center px-3 py-4 hover:bg-teal-50/40 transition-colors group"
+                className="flex flex-col items-center text-center px-3 py-4 hover:bg-nautilus-accent-muted/30 transition-colors group"
               >
                 <span className="text-2xl mb-1.5">{m.icon}</span>
-                <p className="text-xs font-semibold text-slate-700 group-hover:text-teal-700 leading-tight">{m.name}</p>
+                <p className="text-xs font-semibold text-slate-700 group-hover:text-nautilus-accent leading-tight">{m.name}</p>
                 <p className="text-[10px] text-slate-400 mt-0.5 leading-tight">{m.desc}</p>
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400" />
               </Link>
@@ -290,7 +290,7 @@ export default function DashboardPage() {
                 <Link
                   key={u.label}
                   href={u.href}
-                  className="block p-2.5 rounded-lg border border-slate-200 bg-slate-50/60 hover:border-teal-300 hover:bg-teal-50/40 transition-colors"
+                  className="block p-2.5 rounded-lg border border-slate-200 bg-slate-50/60 hover:border-nautilus-accent/30 hover:bg-nautilus-accent-muted/30 transition-colors"
                 >
                   <p className="text-xs font-semibold text-slate-800">{u.label}</p>
                   <p className="text-[10px] text-slate-500 mt-0.5">{u.desc}</p>
@@ -346,7 +346,7 @@ export default function DashboardPage() {
           <span className="text-slate-300">|</span>
           <span>NGX · FMDQ · SEC compliant</span>
           <span className="text-slate-300">|</span>
-          <Link href="/platform" className="text-teal-600 hover:underline font-medium">Platform overview →</Link>
+          <Link href="/platform" className="text-nautilus-accent hover:underline font-medium">Platform overview →</Link>
         </div>
       </div>
 
@@ -358,7 +358,7 @@ export default function DashboardPage() {
             <p className="text-sm text-slate-500 mt-0.5">Checking fund: {fund?.fundName ?? "All funds"}</p>
             {complianceLoading ? (
               <div className="mt-4 flex items-center gap-2 text-sm text-slate-500">
-                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-nautilus-accent animate-pulse" />
                 Running checks across all positions…
               </div>
             ) : complianceResult ? (
