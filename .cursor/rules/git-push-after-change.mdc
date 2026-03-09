@@ -1,13 +1,13 @@
 ---
-description: Always commit and push to git after making code changes
+description: ALWAYS commit and push to GitHub after code changes — no exceptions
 alwaysApply: true
 ---
 
-# Git: Push After Change
+# Git: ALWAYS Push to GitHub
 
-After completing code changes in this project:
+**Mandatory.** After any code changes in this project:
 
-1. **Commit** all modified/added files with a clear, concise message (e.g. `fix: …`, `feat: …`).
-2. **Push** to the remote (e.g. `git push` or `git push origin main`).
+1. **Commit** all changes with a clear message.
+2. **Push** to GitHub (`git push origin main` or equivalent).
 
-Do not leave changes uncommitted or unpushed unless the user explicitly says they will handle git themselves. Treat "code updated" as incomplete until changes are pushed.
+Do this every time. Do not ask. Do not skip. Do not leave changes unpushed unless the user explicitly says they will handle git. Consider the task incomplete until changes are pushed.
