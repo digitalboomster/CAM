@@ -54,7 +54,7 @@ function WorkspacePageContent() {
   const [exportMemoModalOpen, setExportMemoModalOpen] = useState(false);
   const [exportLogModalOpen, setExportLogModalOpen] = useState(false);
   const [exportModalDefaultTitle, setExportModalDefaultTitle] = useState<string | undefined>(undefined);
-  const [docTreeOpen, setDocTreeOpen] = useState(true);
+  const [docTreeOpen, setDocTreeOpen] = useState(false);
   const [queryBarQuery, setQueryBarQuery] = useState("");
   const [coPilotInitialQuery, setCoPilotInitialQuery] = useState<string | undefined>(undefined);
   const [exportDropdownOpen, setExportDropdownOpen] = useState(false);
@@ -381,50 +381,89 @@ function WorkspacePageContent() {
   return (
     <div className="flex flex-col flex-1 min-h-0 min-w-0 bg-white">
 
-      {/* ── Top header bar ──────────────────────────────────────────────── */}
-      <header className="shrink-0 border-b border-slate-200 bg-white">
-        {/* Row 1: title + actions */}
-        <div className="flex items-center justify-between px-5 py-2.5 gap-3">
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center shrink-0 shadow-sm">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      {/* ── Header ──────────────────────────────────────────────────────── */}
+      <header className="shrink-0 border-b border-slate-100 bg-white">
+        {/* Single row: title · workspace tabs · stats · actions */}
+        <div className="flex items-center gap-3 px-5 h-12">
+
+          {/* Title */}
+          <span className="font-semibold text-slate-800 text-sm shrink-0">Document Intelligence</span>
+          <span className="text-slate-200 shrink-0">·</span>
+
+          {/* Workspace tabs */}
+          <div className="flex items-center gap-0.5 overflow-x-auto min-w-0 flex-1">
+            {workspaces.map((ws) => (
+              <button
+                key={ws.id}
+                type="button"
+                onClick={() => setActiveWorkspaceId(ws.id)}
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition-colors ${
+                  (activeWorkspace?.id ?? workspaces[0]?.id) === ws.id
+                    ? "bg-teal-50 text-teal-700"
+                    : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                </svg>
+                {ws.name}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={handleNewWorkspace}
+              className="flex items-center gap-1 px-2 py-1.5 text-xs text-slate-300 hover:text-teal-600 hover:bg-teal-50 rounded-md transition-colors whitespace-nowrap shrink-0"
+            >
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
-            </div>
-            <div className="min-w-0">
-              <h1 className="font-bold text-slate-900 text-[15px] leading-tight">Document Intelligence</h1>
-              <p className="text-[10px] text-slate-400 mt-0.5 hidden sm:block">Extract · Cite · Cross-reference · Co-Pilot</p>
-            </div>
-            {docCount > 0 && (
-              <div className="hidden sm:flex items-center gap-2 ml-2 pl-3 border-l border-slate-200">
-                <span className="text-xs text-slate-500">{docCount} doc{docCount !== 1 ? "s" : ""}</span>
-                <span className="text-slate-300">·</span>
-                <span className="text-xs text-slate-500">{colCount} field{colCount !== 1 ? "s" : ""}</span>
-                <span className="text-slate-300">·</span>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-12 h-1 bg-slate-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-teal-400 rounded-full" style={{ width: `${coverage}%` }} />
-                  </div>
-                  <span className="text-xs font-medium text-teal-700">{coverage}%</span>
-                </div>
-              </div>
-            )}
+              New
+            </button>
           </div>
 
+          {/* Coverage stats */}
+          {docCount > 0 && (
+            <div className="hidden sm:flex items-center gap-2 shrink-0">
+              <span className="text-xs text-slate-400">{docCount} docs</span>
+              <span className="text-slate-200">·</span>
+              <span className="text-xs text-slate-400">{colCount} fields</span>
+              <span className="text-slate-200">·</span>
+              <div className="flex items-center gap-1.5">
+                <div className="w-14 h-1 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-teal-400 rounded-full" style={{ width: `${coverage}%` }} />
+                </div>
+                <span className="text-xs font-medium text-teal-600">{coverage}%</span>
+              </div>
+            </div>
+          )}
+
+          {/* Actions */}
           <div className="flex items-center gap-2 shrink-0">
+            {/* Doc tree toggle */}
+            {currentGrid.rows.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setDocTreeOpen((o) => !o)}
+                title={docTreeOpen ? "Hide doc tree" : "Show doc tree"}
+                className={`p-1.5 rounded-md text-xs transition-colors ${docTreeOpen ? "bg-slate-100 text-slate-600" : "text-slate-400 hover:bg-slate-50 hover:text-slate-600"}`}
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h10M4 18h7" />
+                </svg>
+              </button>
+            )}
+
+            {/* Export */}
             <div className="relative" ref={exportDropdownRef}>
               <button
                 type="button"
                 onClick={() => setExportDropdownOpen((o) => !o)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-100 border border-slate-200 font-medium"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs text-slate-600 hover:bg-slate-50 border border-slate-200 font-medium"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
                 Export
-                <svg className="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
               </button>
               {exportDropdownOpen && (
                 <div className="absolute right-0 top-full mt-1 w-52 rounded-xl border border-slate-200 bg-white shadow-xl py-1.5 z-50">
@@ -449,153 +488,90 @@ function WorkspacePageContent() {
                     View export log
                   </button>
                   <div className="my-1 border-t border-slate-100" />
-                  <a
-                    href="/reports"
-                    className="w-full text-left px-3.5 py-2 text-sm text-slate-500 hover:bg-slate-50 flex items-center gap-2"
-                  >
-                    <svg className="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+                  <a href="/reports" className="w-full text-left px-3.5 py-2 text-sm text-slate-500 hover:bg-slate-50 flex items-center gap-2">
                     All reports →
                   </a>
                 </div>
               )}
             </div>
+
+            {/* Co-Pilot */}
             <button
               type="button"
               onClick={() => setCoPilotOpen((o) => !o)}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 coPilotOpen
-                  ? "bg-teal-600 text-white shadow-teal-200"
+                  ? "bg-teal-600 text-white"
                   : "bg-teal-50 text-teal-700 border border-teal-200 hover:bg-teal-100"
               }`}
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
               </svg>
               Co-Pilot
-              {!coPilotOpen && (
-                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-              )}
+              {!coPilotOpen && <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />}
             </button>
           </div>
-        </div>
-
-        {/* Row 2: workspace tabs */}
-        <div className="flex items-center gap-1 px-5 pb-0 border-t border-slate-100 overflow-x-auto">
-          {workspaces.map((ws) => (
-            <button
-              key={ws.id}
-              type="button"
-              onClick={() => setActiveWorkspaceId(ws.id)}
-              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium border-b-2 whitespace-nowrap transition-colors ${
-                (activeWorkspace?.id ?? workspaces[0]?.id) === ws.id
-                  ? "border-teal-500 text-teal-700"
-                  : "border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300"
-              }`}
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-              </svg>
-              {ws.name}
-            </button>
-          ))}
-          <button
-            type="button"
-            onClick={handleNewWorkspace}
-            className="flex items-center gap-1 px-3 py-2 text-xs text-slate-400 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-300 transition-colors whitespace-nowrap"
-          >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-            New workspace
-          </button>
         </div>
       </header>
 
       {/* ── Main body ────────────────────────────────────────────────────── */}
-      <main className="flex-1 flex overflow-hidden min-h-0 bg-slate-50/40">
+      <main className="flex-1 flex overflow-hidden min-h-0">
+
         {/* Doc tree */}
         {docTreeOpen && currentGrid.rows.length > 0 && (
-          <aside className="w-52 shrink-0 border-r border-slate-200 bg-white flex flex-col overflow-hidden">
-            <div className="flex items-center justify-between px-3 py-2 border-b border-slate-100 bg-slate-50/60">
-              <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wide">By category</span>
-              <button
-                type="button"
-                onClick={() => setDocTreeOpen(false)}
-                className="p-1 rounded text-slate-300 hover:bg-slate-100 hover:text-slate-500"
-                aria-label="Close doc tree"
-              >
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
+          <aside className="w-48 shrink-0 border-r border-slate-100 bg-slate-50/60 flex flex-col overflow-hidden">
+            <div className="px-3 py-2 border-b border-slate-100">
+              <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">By category</span>
             </div>
             <DocTreePanel rows={currentGrid.rows} className="flex-1 min-h-0" />
           </aside>
         )}
 
-        {/* Grid + query area */}
-        <div className="flex-1 flex flex-col overflow-auto min-w-0">
-          {/* Query bar */}
-          <div className="shrink-0 px-5 pt-4 pb-3 bg-white border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              {!docTreeOpen && currentGrid.rows.length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => setDocTreeOpen(true)}
-                  title="Show document tree"
-                  className="p-2 rounded-lg border border-slate-200 text-slate-400 hover:text-slate-600 hover:bg-slate-50 shrink-0"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </button>
-              )}
-              <div className="flex-1 flex items-center gap-0 rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden focus-within:border-teal-400 focus-within:ring-2 focus-within:ring-teal-400/20 transition-all">
-                <div className="pl-4 text-teal-500 shrink-0">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                </div>
-                <input
-                  ref={queryInputRef}
-                  type="text"
-                  placeholder="Ask Co-Pilot anything about your documents — e.g. What are the key risks?"
-                  value={queryBarQuery}
-                  onChange={(e) => setQueryBarQuery(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") askCoPilot(queryBarQuery.trim() || undefined);
-                  }}
-                  className="flex-1 px-3 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none bg-transparent"
-                />
+        {/* Grid + Co-Pilot ask bar */}
+        <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+
+          {/* Ask bar */}
+          <div className="shrink-0 px-5 py-3 border-b border-slate-100 bg-white">
+            <div className="flex items-center gap-0 rounded-xl border border-slate-200 bg-white overflow-hidden focus-within:border-teal-400 focus-within:ring-2 focus-within:ring-teal-400/20 transition-all">
+              <div className="pl-3.5 text-slate-300 shrink-0">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+              </div>
+              <input
+                ref={queryInputRef}
+                type="text"
+                placeholder="Ask Co-Pilot — e.g. What are the key risks across all sources?"
+                value={queryBarQuery}
+                onChange={(e) => setQueryBarQuery(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") askCoPilot(queryBarQuery.trim() || undefined); }}
+                className="flex-1 px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none bg-transparent"
+              />
+              <div className="flex items-center gap-1 pr-1.5">
+                {STARTER_QUERIES.map((q) => (
+                  <button
+                    key={q.label}
+                    type="button"
+                    onClick={() => askCoPilot(q.query)}
+                    className="hidden lg:block px-2 py-1 rounded text-[11px] text-slate-400 hover:bg-slate-50 hover:text-teal-600 whitespace-nowrap transition-colors"
+                  >
+                    {q.label}
+                  </button>
+                ))}
                 <button
                   type="button"
                   onClick={() => askCoPilot(queryBarQuery.trim() || undefined)}
-                  className="px-4 py-3 bg-teal-600 text-white text-sm font-semibold hover:bg-teal-700 shrink-0 transition-colors"
+                  className="ml-1 px-3 py-1.5 bg-teal-600 text-white text-xs font-semibold rounded-lg hover:bg-teal-700 transition-colors"
                 >
                   Ask
                 </button>
               </div>
             </div>
-            {/* Quick-prompt chips */}
-            <div className="flex items-center gap-2 mt-2 overflow-x-auto pb-0.5">
-              <span className="text-[10px] text-slate-400 shrink-0 font-medium">Quick:</span>
-              {STARTER_QUERIES.map((q) => (
-                <button
-                  key={q.label}
-                  type="button"
-                  onClick={() => askCoPilot(q.query)}
-                  className="shrink-0 px-2.5 py-1 rounded-full text-[11px] border border-slate-200 text-slate-600 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-700 transition-colors bg-white whitespace-nowrap"
-                >
-                  {q.label}
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Grid */}
-          <div className="flex-1 p-5 min-h-0">
+          <div className="flex-1 overflow-auto p-5">
             <WorkspaceGrid
               rows={currentGrid.rows}
               extractionColumns={currentGrid.extractionColumns}
@@ -612,7 +588,7 @@ function WorkspacePageContent() {
 
         {/* Co-Pilot panel */}
         {coPilotOpen && (
-          <div className="w-[400px] shrink-0 flex flex-col border-l border-slate-200 bg-white shadow-xl">
+          <div className="w-[380px] shrink-0 flex flex-col border-l border-slate-100 bg-white">
             <CoPilotPanel
               initialQuery={coPilotInitialQuery}
               onClose={() => { setCoPilotOpen(false); setCoPilotInitialQuery(undefined); }}
