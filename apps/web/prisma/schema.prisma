@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Project {
+  id          String      @id @default(cuid())
+  name        String
+  fundId      String?     // optional link to fund context
+  createdAt   DateTime    @default(now())
+  workspaces  Workspace[]
+}
+
+model Workspace {
+  id        String   @id @default(cuid())
+  name      String
+  projectId String?
+  project   Project?  @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+  sources   Source[]
+  fields    Field[]
+  exportLog ExportLogEntry[]
+}
+
+model Field {
+  id          String   @id @default(cuid())
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  name        String
+  sortOrder   Int      @default(0)
+  cells       Cell[]
+}
+
+model Source {
+  id            String   @id @default(cuid())
+  workspaceId   String
+  workspace     Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  documentName  String
+  date          String
+  documentType  String   // display label e.g. "Marketing Materials"
+  category      String   @default("Other") // doc tree: Financials | Legal | Regulatory | Other
+  createdAt     DateTime @default(now())
+  cells         Cell[]
+}
+
+model Cell {
+  id              String   @id @default(cuid())
+  sourceId        String
+  source          Source   @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  fieldId         String
+  field           Field    @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+  status          String   // "reading" | "snippet" | "no-answer"
+  text            String?
+  citationSource  String?
+  citationDocRef  String?
+  stepId          Int?
+  @@unique([sourceId, fieldId])
+}
+
+model ExportLogEntry {
+  id            String    @id @default(cuid())
+  workspaceId   String?
+  workspace     Workspace? @relation(fields: [workspaceId], references: [id], onDelete: SetNull)
+  label         String
+  at            String    // display time e.g. "10:32am"
+  exportedBy    String?   // user name or id for audit
+  createdAt     DateTime  @default(now())
+}
+
+model DealTarget {
+  id              String   @id @default(cuid())
+  name            String   // company or deal name
+  summary         String?
+  marketMultiple  String?  // e.g. "12.5x EV/EBITDA"
+  regulatoryFlag  String?  // e.g. "Clean", "Under review"
+  sourceRef       String?  // citation / traceability
+  sourceDetail    String?  // optional excerpt for citation panel
+  createdAt       DateTime @default(now())
+}
