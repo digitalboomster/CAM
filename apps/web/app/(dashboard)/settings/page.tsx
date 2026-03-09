@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import ModuleShell from "@/components/ModuleShell";
 import { loadSettings, saveSettings, applyTheme, type AppSettings, type DefaultExportFormat, type Theme } from "@/lib/settings";
 
@@ -105,9 +106,13 @@ export default function SettingsPage() {
           <p className="text-xs text-slate-500 mt-1">
             Ethics middleware that scans all underlying assets for AAOIFI (Shariah) or ESG mandate compliance. Zero-error Halal fund management and real-time ethical auditing.
           </p>
-          <span className="inline-block mt-2 px-2.5 py-1 rounded-md text-xs font-medium bg-teal-50 text-teal-700 border border-teal-200">
-            Coming soon
-          </span>
+          <Link
+            href="/shariah-esg"
+            className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-md text-xs font-medium bg-teal-50 text-teal-700 border border-teal-200 hover:bg-teal-100 hover:border-teal-300 transition-colors"
+          >
+            Open Shariah & ESG
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </Link>
         </div>
       </div>
     </ModuleShell>

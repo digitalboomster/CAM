@@ -115,6 +115,7 @@ const moreModules = [
   { href: "/oms",                  label: "Order Management",     icon: "order",     tip: "" },
   { href: "/valuation",            label: "Valuation",            icon: "calculator",tip: "" },
   { href: "/regulator-reporting",  label: "Regulator Reporting",  icon: "shield",    tip: "" },
+  { href: "/shariah-esg",         label: "Shariah & ESG",       icon: "shield",    tip: "" },
   { href: "/developers",           label: "API Storefront",       icon: "document",  tip: "" },
 ];
 

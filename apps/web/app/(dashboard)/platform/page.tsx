@@ -12,7 +12,7 @@ const MODULES = [
   { id: "copilot", name: "Nautilus Co-Pilot", description: "GenAI Augmented Analyst. Translates complex quant data into natural language.", href: "/workspace", status: "live" as const },
   { id: "personalization", name: "Personalization at Scale", description: "Automate construction and daily rebalancing of thousands of individual portfolios (55ip logic).", href: "/rebalancing", status: "live" as const },
   { id: "api", name: "API Storefront", description: "API-first platform. Fintechs, insurers, PFAs plug into Cordros regulated investment products.", href: "/developers", status: "live" as const },
-  { id: "shariah", name: "Shariah & ESG Guardrails", description: "Ethics middleware: scan assets for AAOIFI/ESG compliance. Zero-error Halal fund management.", href: "/settings", status: "coming_soon" as const },
+  { id: "shariah", name: "Shariah & ESG Guardrails", description: "Ethics middleware: scan assets for AAOIFI/ESG compliance. Zero-error Halal fund management.", href: "/shariah-esg", status: "live" as const },
   { id: "multicurrency", name: "Multi-Currency Real-Return Analytics", description: "NGN, USD, Gold-backed; devaluation-adjusted returns.", href: "#", status: "coming_soon" as const },
   { id: "compliance", name: "Pre-Trade Compliance Kill-Switch", description: "Hard-coded layer that blocks any trade exceeding SEC limits or fund mandate concentrations.", href: "/dashboard", status: "live" as const },
   { id: "institution", name: "Institutional Portal (B2B)", description: "Cloud-native window for PFAs: live performance, risk attribution, audit trails.", href: "/institution-hub", status: "live" as const },
