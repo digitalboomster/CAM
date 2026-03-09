@@ -11,6 +11,12 @@ const MOCK_PORTFOLIOS = [
   { id: "fixed-income", name: "Cordros Fixed Income Fund", mandate: "Capital preservation, yield", allocation: "Fixed income 85%, Cash 15%" },
 ];
 
+const MOCK_FUND_METRICS: Record<string, { aum: string; nav: string; navAsOf: string; ytd: string; ytdUp: boolean }> = {
+  "milestone-2023": { aum: "₦14.2bn", nav: "124.52", navAsOf: "Mar 8, 2026", ytd: "+12.4%", ytdUp: true },
+  "growth": { aum: "₦8.7bn", nav: "18.76", navAsOf: "Mar 8, 2026", ytd: "+18.7%", ytdUp: true },
+  "fixed-income": { aum: "₦22.1bn", nav: "9.31", navAsOf: "Mar 8, 2026", ytd: "+9.3%", ytdUp: true },
+};
+
 const MOCK_POSITIONS: Record<string, { name: string; sector: string; weight: string; value: string }[]> = {
   "milestone-2023": [
     { name: "Dangote Cement", sector: "Industrials", weight: "12.4%", value: "NGN 2.1bn" },
@@ -35,6 +41,7 @@ export default function PortfoliosPage() {
   const fund = useFund();
   const [expandedId, setExpandedId] = useState<string | null>(fund?.fundId ?? null);
   const positions = expandedId ? MOCK_POSITIONS[expandedId] ?? [] : [];
+  const metrics = expandedId ? MOCK_FUND_METRICS[expandedId] : null;
 
   return (
     <ModuleShell
@@ -43,9 +50,75 @@ export default function PortfoliosPage() {
       action={{ label: "Dashboard", href: "/dashboard" }}
     >
       <div className="space-y-6">
-        <p className="text-sm text-slate-600">
-          {fund ? `Current fund in context: ${fund.fundName}` : "Select a fund in the header to filter context."}
-        </p>
+        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm bg-gradient-to-br from-slate-50 to-white">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Portfolio command view</p>
+          <div className="mt-2 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+            <div className="min-w-0">
+              <h2 className="text-lg font-semibold text-slate-900">Whole Portfolio Engine</h2>
+              <p className="text-sm text-slate-600 mt-1">
+                {fund ? `Fund in context: ${fund.fundName}` : "Select a fund in the header to filter context."}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Link href="/analytics" className="px-3 py-2 rounded-lg text-sm font-medium border border-slate-200 text-slate-700 hover:bg-slate-50">
+                Analytics
+              </Link>
+              <Link href="/rebalancing" className="px-3 py-2 rounded-lg text-sm font-medium border border-slate-200 text-slate-700 hover:bg-slate-50">
+                Rebalancing
+              </Link>
+              <Link href="/dashboard" className="px-3 py-2 rounded-lg text-sm font-medium bg-nautilus-accent text-white hover:bg-nautilus-accent-hover shadow-sm">
+                Dashboard
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { label: "Total AUM", value: "₦45.0bn", sub: "Across 3 funds" },
+            { label: "Funds", value: "3", sub: "Active mandates" },
+            { label: "Last NAV", value: metrics?.navAsOf ?? "Mar 8, 2026", sub: "As of close" },
+            { label: "YTD (selected)", value: metrics?.ytd ?? "—", sub: expandedId ? "Selected fund" : "Pick a fund", up: metrics?.ytdUp ?? true },
+          ].map((k) => (
+            <div key={k.label} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+              <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">{k.label}</p>
+              <p className="mt-0.5 text-2xl font-bold text-slate-900">{k.value}</p>
+              <p className="text-xs text-slate-500 mt-0.5">{k.sub}</p>
+            </div>
+          ))}
+        </section>
+
+        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <h2 className="font-semibold text-slate-900">Allocation summary</h2>
+              <p className="text-sm text-slate-600 mt-1">High-level exposure for the selected portfolio. Use Rebalancing to simulate drift correction.</p>
+            </div>
+            {metrics && (
+              <div className="text-right">
+                <p className="text-xs text-slate-500">Selected fund AUM</p>
+                <p className="font-semibold text-slate-900">{metrics.aum}</p>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-4 grid gap-3">
+            {[
+              { label: "Equity", pct: 76 },
+              { label: "Fixed income", pct: 18 },
+              { label: "Cash", pct: 6 },
+            ].map((a) => (
+              <div key={a.label} className="flex items-center gap-3">
+                <span className="w-24 text-xs font-medium text-slate-600">{a.label}</span>
+                <div className="flex-1 h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div className="h-full bg-teal-400 rounded-full" style={{ width: `${a.pct}%` }} />
+                </div>
+                <span className="w-12 text-right text-xs font-semibold text-slate-700">{a.pct}%</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-slate-400 mt-3">Demo values — connect to ABOR/IBOR feeds in production.</p>
+        </section>
 
         <section>
           <h2 className="font-semibold text-slate-900 mb-3">Portfolio list</h2>
@@ -60,6 +133,11 @@ export default function PortfoliosPage() {
                     <p className="font-medium text-slate-900">{p.name}</p>
                     <p className="text-sm text-slate-600 mt-0.5">{p.mandate}</p>
                     <p className="text-xs text-slate-500 mt-1">Allocation: {p.allocation}</p>
+                    {MOCK_FUND_METRICS[p.id] && (
+                      <p className="text-xs text-slate-500 mt-1">
+                        NAV {MOCK_FUND_METRICS[p.id].nav} · AUM {MOCK_FUND_METRICS[p.id].aum}
+                      </p>
+                    )}
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <span className="text-xs text-slate-400">
@@ -108,7 +186,8 @@ export default function PortfoliosPage() {
         </section>
 
         <p className="text-sm text-slate-500">
-          <Link href="/dashboard" className="text-teal-600 hover:underline">Dashboard</Link> shows NAV and compliance for the selected fund.
+          Tip: Use <Link href="/analytics" className="text-nautilus-accent hover:underline font-medium">Analytics</Link> for attribution and
+          <Link href="/rebalancing" className="text-nautilus-accent hover:underline font-medium"> Rebalancing</Link> for drift simulation.
         </p>
       </div>
     </ModuleShell>
