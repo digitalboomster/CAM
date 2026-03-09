@@ -39,7 +39,10 @@ export async function GET() {
     );
   } catch (e) {
     console.error(e);
-    return NextResponse.json([]);
+    return NextResponse.json(
+      { error: "Database not available", code: "DB_UNAVAILABLE" },
+      { status: 503 }
+    );
   }
 }
 

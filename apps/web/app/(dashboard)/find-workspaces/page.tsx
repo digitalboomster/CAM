@@ -66,8 +66,15 @@ export default function FindWorkspacesPage() {
             Loading workspaces…
           </div>
         ) : error ? (
-          <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-            Failed to load workspaces. Run <code className="bg-white/60 px-1 rounded">npm run db:setup</code> in <code className="bg-white/60 px-1 rounded">apps/web</code> and refresh.
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+            <p className="font-medium">Could not load workspaces. Run <code className="bg-white/80 px-1 rounded">npm run db:setup</code> in <code className="bg-white/80 px-1 rounded">apps/web</code>, then try again.</p>
+            <button
+              type="button"
+              onClick={() => { setError(false); setLoading(true); api.fetchWorkspaces().then(setWorkspaces).catch(() => setError(true)).finally(() => setLoading(false)); }}
+              className="mt-3 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-100 text-amber-800 hover:bg-amber-200"
+            >
+              Try again
+            </button>
           </div>
         ) : workspaces.length === 0 ? (
           <div className="rounded-xl border border-slate-200 bg-white p-10 text-center shadow-sm">

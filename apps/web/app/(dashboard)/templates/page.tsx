@@ -41,7 +41,9 @@ export default function TemplatesPage() {
       }
       router.push(`/workspace?workspace=${ws.id}`);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Failed to create workspace");
+      const msg = e instanceof Error ? e.message : "Failed to create workspace";
+      const isDb = /database|503|unavailable/i.test(msg) || msg === "Failed to create workspace";
+      setError(isDb ? "Database not set up. Run npm run db:setup in apps/web, then try again." : msg);
       setUsing(null);
     }
   };
@@ -53,8 +55,11 @@ export default function TemplatesPage() {
       action={{ label: "Open Workspace", href: "/workspace" }}
     >
       {error && (
-        <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-100 text-sm text-red-700">
-          {error}
+        <div className="mb-4 p-4 rounded-xl bg-amber-50 border border-amber-200 text-sm text-amber-900">
+          <p className="font-medium">{error}</p>
+          {error.includes("db:setup") && (
+            <code className="mt-2 block bg-white/80 p-2 rounded text-xs text-slate-700">npm run db:setup</code>
+          )}
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

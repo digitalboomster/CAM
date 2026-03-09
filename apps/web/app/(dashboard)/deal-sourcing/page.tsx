@@ -167,9 +167,10 @@ export default function DealSourcingPage() {
         {loading ? (
           <p className="text-slate-500">Loading…</p>
         ) : error ? (
-          <p className="text-red-600">
-            Failed to load targets. Run <code className="bg-slate-100 px-1 rounded">npm run db:setup</code> in apps/web and refresh.
-          </p>
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+            <p className="font-medium">Could not load targets. Run <code className="bg-white/80 px-1 rounded">npm run db:setup</code> in <code className="bg-white/80 px-1 rounded">apps/web</code>, then try again.</p>
+            <button type="button" onClick={load} className="mt-3 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-100 text-amber-800 hover:bg-amber-200">Try again</button>
+          </div>
         ) : filtered.length === 0 ? (
           <div className="rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm">
             <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mx-auto mb-4">

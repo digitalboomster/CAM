@@ -24,7 +24,9 @@ export async function GET(request: Request) {
     );
   } catch (e) {
     console.error(e);
-    // Return empty list so Reports page always opens; avoid 500 when DB missing or Prisma fails
-    return NextResponse.json([]);
+    return NextResponse.json(
+      { error: "Database not available", code: "DB_UNAVAILABLE" },
+      { status: 503 }
+    );
   }
 }

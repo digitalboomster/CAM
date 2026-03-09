@@ -129,9 +129,23 @@ export default function RegulatorReportingPage() {
           {loading ? (
             <p className="text-slate-500">Loading…</p>
           ) : error ? (
-            <p className="text-red-600">
-              Failed to load export log. Run <code className="bg-slate-100 px-1 rounded">npm run db:setup</code> in apps/web and refresh.
-            </p>
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+              <p className="font-medium">Could not load export log. Run <code className="bg-white/80 px-1 rounded">npm run db:setup</code> in <code className="bg-white/80 px-1 rounded">apps/web</code>, then try again.</p>
+              <button
+                type="button"
+                onClick={() => {
+                  setError(false);
+                  setLoading(true);
+                  Promise.all([api.fetchExportLog(), api.fetchWorkspaces()])
+                    .then(([log, list]) => { setExports(log); setWorkspaces(list); setWorkspaceId((p) => (p ? p : list[0]?.id ?? "")); })
+                    .catch(() => setError(true))
+                    .finally(() => setLoading(false));
+                }}
+                className="mt-3 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-100 text-amber-800 hover:bg-amber-200"
+              >
+                Try again
+              </button>
+            </div>
           ) : regulatorExports.length === 0 ? (
             <p className="text-slate-600">No regulator exports yet. Use Generate & export above and complete an export from the workspace.</p>
           ) : (
