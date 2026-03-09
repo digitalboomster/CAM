@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-slate-900 flex flex-col">
 
       {/* Header */}
-      <header className="border-b border-slate-200 bg-white sticky top-0 z-10">
+      <header className="border-b border-slate-100 bg-white sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-nautilus-accent text-white font-bold text-sm flex items-center justify-center shadow-sm">

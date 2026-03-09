@@ -52,7 +52,7 @@ export default function ViewOptionsDropdown({
         {children}
       </button>
       {open && (
-        <div className="absolute right-0 top-full mt-1 w-56 rounded-lg border border-slate-200 bg-white shadow-lg py-2 z-50">
+        <div className="absolute right-0 top-full mt-1 w-56 rounded-lg border border-slate-100 bg-white shadow-lg py-2 z-50">
           <p className="px-3 py-1.5 text-xs font-medium text-slate-500 uppercase">Columns</p>
           {columnIds.map((id) => (
             <label key={id} className="flex items-center gap-2 px-3 py-2 hover:bg-slate-50 cursor-pointer">

@@ -50,7 +50,7 @@ export default function PortfoliosPage() {
       action={{ label: "Dashboard", href: "/dashboard" }}
     >
       <div className="space-y-6">
-        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm bg-gradient-to-br from-slate-50 to-white">
+        <section className="rounded-xl border border-slate-100 bg-white p-5 bg-gradient-to-br from-slate-50 to-white">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Portfolio command view</p>
           <div className="mt-2 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
             <div className="min-w-0">
@@ -80,7 +80,7 @@ export default function PortfoliosPage() {
             { label: "Last NAV", value: metrics?.navAsOf ?? "Mar 8, 2026", sub: "As of close" },
             { label: "YTD (selected)", value: metrics?.ytd ?? "—", sub: expandedId ? "Selected fund" : "Pick a fund", up: metrics?.ytdUp ?? true },
           ].map((k) => (
-            <div key={k.label} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div key={k.label} className="rounded-xl border border-slate-100 bg-white p-4">
               <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">{k.label}</p>
               <p className="mt-0.5 text-2xl font-bold text-slate-900">{k.value}</p>
               <p className="text-xs text-slate-500 mt-0.5">{k.sub}</p>
@@ -88,7 +88,7 @@ export default function PortfoliosPage() {
           ))}
         </section>
 
-        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section className="rounded-xl border border-slate-100 bg-white p-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
               <h2 className="font-semibold text-slate-900">Allocation summary</h2>
@@ -122,7 +122,7 @@ export default function PortfoliosPage() {
 
         <section>
           <h2 className="font-semibold text-slate-900 mb-3">Portfolio list</h2>
-          <div className="rounded-xl border border-slate-200 bg-white divide-y divide-slate-100 overflow-hidden">
+          <div className="rounded-xl border border-slate-100 bg-white divide-y divide-slate-100 overflow-hidden">
             {MOCK_PORTFOLIOS.map((p) => (
               <div key={p.id}>
                 <div
@@ -156,10 +156,10 @@ export default function PortfoliosPage() {
                 {expandedId === p.id && positions.length > 0 && (
                   <div className="border-t border-slate-100 bg-slate-50/50 px-4 py-3">
                     <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Positions</h3>
-                    <div className="rounded-lg border border-slate-200 bg-white overflow-hidden">
+                    <div className="rounded-lg border border-slate-100 bg-white overflow-hidden">
                       <table className="w-full text-sm">
                         <thead>
-                          <tr className="border-b border-slate-200 bg-slate-50">
+                          <tr className="border-b border-slate-100 bg-white">
                             <th className="text-left px-3 py-2 font-medium text-slate-700">Name</th>
                             <th className="text-left px-3 py-2 font-medium text-slate-700">Sector</th>
                             <th className="text-right px-3 py-2 font-medium text-slate-700">Weight</th>

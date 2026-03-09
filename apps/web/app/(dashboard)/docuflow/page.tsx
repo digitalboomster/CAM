@@ -69,17 +69,17 @@ export default function DocuflowPage() {
       <div className="space-y-5 max-w-4xl">
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Processed</p>
             <p className="mt-1 text-2xl font-bold text-emerald-600">{processed}</p>
             <p className="text-xs text-slate-500 mt-0.5">Fields extracted and routed</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">In pipeline</p>
             <p className="mt-1 text-2xl font-bold text-blue-600">{inProgress}</p>
             <p className="text-xs text-slate-500 mt-0.5">Processing or queued</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Failed</p>
             <p className="mt-1 text-2xl font-bold text-red-600">{failed}</p>
             <p className="text-xs text-slate-500 mt-0.5">Require retry or review</p>
@@ -114,10 +114,10 @@ export default function DocuflowPage() {
         </div>
 
         {activeTab === "pipeline" && (
-          <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+          <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
+                <tr className="border-b border-slate-100 bg-white">
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Document</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Type</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Destination</th>
@@ -173,7 +173,7 @@ export default function DocuflowPage() {
               Extraction templates define which fields are pulled from each document class. Apply a template to auto-populate workspace columns.
             </p>
             {TEMPLATES.map((t) => (
-              <div key={t.id} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm flex items-start justify-between gap-4">
+              <div key={t.id} className="rounded-xl border border-slate-100 bg-white p-4 flex items-start justify-between gap-4">
                 <div>
                   <p className="font-medium text-slate-800">{t.name}</p>
                   <p className="text-xs text-slate-500 mt-1">Fields: {t.fields}</p>

@@ -34,7 +34,7 @@ export default function DocTreePanel({ rows, onSelectSource, className = "" }: D
   };
 
   return (
-    <div className={`flex flex-col rounded-lg border border-slate-200 bg-white overflow-hidden ${className}`}>
+    <div className={`flex flex-col rounded-lg border border-slate-100 bg-white overflow-hidden ${className}`}>
       <div className="px-3 py-2 border-b border-slate-100 bg-slate-50/80">
         <h2 className="text-xs font-semibold text-slate-600 uppercase tracking-wider">Doc tree</h2>
       </div>

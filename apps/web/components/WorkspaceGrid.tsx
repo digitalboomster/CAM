@@ -130,7 +130,7 @@ export default function WorkspaceGrid({
 
   return (
     <>
-      <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+      <div className="rounded-xl border border-slate-100 bg-white overflow-hidden shadow-sm">
 
         {/* ── Toolbar ─────────────────────────────────────────────────── */}
         <div className="flex items-center justify-between gap-3 px-4 py-2.5 border-b border-slate-100 bg-white">

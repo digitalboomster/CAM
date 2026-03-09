@@ -28,7 +28,7 @@ export default function TopBar({
   }, [exportOpen]);
 
   return (
-    <header className="h-14 shrink-0 border-b border-slate-200 bg-white px-6 flex items-center justify-between">
+    <header className="h-14 shrink-0 border-b border-slate-100 bg-white px-6 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <h1 className="font-semibold text-slate-900">{title}</h1>
         <span className="text-sm text-slate-500">Saved at 10:49am</span>
@@ -44,7 +44,7 @@ export default function TopBar({
               <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
             </button>
             {exportOpen && (
-              <div className="absolute right-0 top-full mt-1 w-48 rounded-lg border border-slate-200 bg-white shadow-lg py-1 z-50">
+              <div className="absolute right-0 top-full mt-1 w-48 rounded-lg border border-slate-100 bg-white shadow-lg py-1 z-50">
                 {onExportMemo && <button onClick={() => { onExportMemo(); setExportOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-slate-700 hover:bg-slate-50">Export memo (PDF)</button>}
                 {onExportLog && <button onClick={() => { onExportLog(); setExportOpen(false); }} className="w-full text-left px-3 py-2 text-sm text-slate-700 hover:bg-slate-50">View export log</button>}
               </div>

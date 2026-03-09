@@ -77,17 +77,17 @@ export default function AnalyticsPage() {
 
         {/* KPI strip */}
         <div className="grid grid-cols-3 gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Fund return ({period})</p>
             <p className="mt-1 text-2xl font-bold text-emerald-600">{perf.fund}</p>
             <p className="text-xs text-slate-500 mt-0.5">Benchmark {perf.benchmark}</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Alpha ({period})</p>
             <p className="mt-1 text-2xl font-bold text-teal-600">{perf.alpha}</p>
             <p className="text-xs text-slate-500 mt-0.5">vs NGX All-Share</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Sharpe Ratio (12m)</p>
             <p className="mt-1 text-2xl font-bold text-slate-900">1.34</p>
             <p className="text-xs text-slate-500 mt-0.5">Risk-adjusted return</p>
@@ -118,10 +118,10 @@ export default function AnalyticsPage() {
             <p className="text-sm text-slate-600 mb-3">
               Return contribution by sector, active weight vs NGX All-Share benchmark. Data: FY2024 positions.
             </p>
-            <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50">
+                  <tr className="border-b border-slate-100 bg-white">
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Sector</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">Weight</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">Contribution</th>
@@ -166,7 +166,7 @@ export default function AnalyticsPage() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {RISK_METRICS.map((m) => (
-                <div key={m.label} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div key={m.label} className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">{m.label}</p>
                   <p className="mt-1 text-xl font-bold text-slate-900">{m.value}</p>
                   <p className="text-xs text-slate-500 mt-0.5">{m.sub}</p>
@@ -185,10 +185,10 @@ export default function AnalyticsPage() {
             <p className="text-sm text-slate-600 mb-3">
               Fund return vs NGX All-Share benchmark across periods. All returns are total return, gross of fees.
             </p>
-            <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50">
+                  <tr className="border-b border-slate-100 bg-white">
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Period</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">Fund</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">Benchmark</th>

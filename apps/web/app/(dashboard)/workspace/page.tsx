@@ -303,7 +303,7 @@ function WorkspacePageContent() {
   if (!apiOk && workspaces.length === 0) {
     return (
       <div className="flex flex-1 items-center justify-center bg-slate-50 p-6">
-        <div className="rounded-xl border border-slate-200 bg-white p-6 max-w-md text-center shadow-sm">
+        <div className="rounded-xl border border-slate-100 bg-white p-6 max-w-md text-center shadow-sm">
           <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center mx-auto mb-3">
             <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -466,7 +466,7 @@ function WorkspacePageContent() {
                 Export
               </button>
               {exportDropdownOpen && (
-                <div className="absolute right-0 top-full mt-1 w-52 rounded-xl border border-slate-200 bg-white shadow-xl py-1.5 z-50">
+                <div className="absolute right-0 top-full mt-1 w-52 rounded-xl border border-slate-100 bg-white shadow-xl py-1.5 z-50">
                   <button
                     type="button"
                     onClick={() => { setExportMemoModalOpen(true); setExportDropdownOpen(false); }}
@@ -533,7 +533,7 @@ function WorkspacePageContent() {
 
           {/* Ask bar */}
           <div className="shrink-0 px-5 py-3 border-b border-slate-100 bg-white">
-            <div className="flex items-center gap-0 rounded-xl border border-slate-200 bg-white overflow-hidden focus-within:border-teal-400 focus-within:ring-2 focus-within:ring-teal-400/20 transition-all">
+            <div className="flex items-center gap-0 rounded-xl border border-slate-100 bg-white overflow-hidden focus-within:border-teal-400 focus-within:ring-2 focus-within:ring-teal-400/20 transition-all">
               <div className="pl-3.5 text-slate-300 shrink-0">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />

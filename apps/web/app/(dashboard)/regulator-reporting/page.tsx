@@ -78,7 +78,7 @@ export default function RegulatorReportingPage() {
 
         <section>
           <h2 className="font-semibold text-slate-900 mb-3">Generate & export</h2>
-          <div className="rounded-xl border border-slate-200 bg-white p-5 space-y-4">
+          <div className="rounded-xl border border-slate-100 bg-white p-5 space-y-4">
             <p className="text-sm text-slate-600">
               Pick a template and workspace. You’ll be taken to Document Intelligence with the export dialog pre-filled so you can generate and download the PDF.
             </p>
@@ -149,10 +149,10 @@ export default function RegulatorReportingPage() {
           ) : regulatorExports.length === 0 ? (
             <p className="text-slate-600">No regulator exports yet. Use Generate & export above and complete an export from the workspace.</p>
           ) : (
-            <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50">
+                  <tr className="border-b border-slate-100 bg-white">
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Date</th>
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Label</th>
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Workspace</th>

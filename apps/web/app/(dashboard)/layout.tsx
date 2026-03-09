@@ -15,9 +15,9 @@ export default function DashboardLayout({
   return (
     <WorkspaceNavProvider>
       <FundProvider>
-        <div className="flex h-screen overflow-hidden bg-slate-100" style={{ minHeight: "100vh", backgroundColor: "var(--nautilus-bg)" }}>
+        <div className="flex h-screen overflow-hidden bg-white" style={{ minHeight: "100vh" }}>
           <NautilusSidebar />
-          <div className="flex-1 flex flex-col min-w-0 overflow-hidden min-h-0 ml-64">
+          <div className="flex-1 flex flex-col min-w-0 overflow-hidden min-h-0 ml-56">
             <FundHeader />
             <DashboardErrorBoundary>
               {children}

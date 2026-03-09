@@ -40,7 +40,7 @@ export default function PlatformPage() {
             <li key={m.id}>
               <Link
                 href={m.href}
-                className="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:border-nautilus-accent hover:bg-nautilus-accent-muted/30 transition-colors"
+                className="block rounded-xl border border-slate-100 bg-white p-4 hover:border-nautilus-accent hover:bg-nautilus-accent-muted/30 transition-colors"
               >
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-medium text-slate-900">{m.name}</span>

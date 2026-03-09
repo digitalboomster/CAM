@@ -80,7 +80,7 @@ export default function ValuationPage() {
 
         {activeTab === "dcf" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm space-y-4">
+            <div className="rounded-xl border border-slate-100 bg-white p-5 space-y-4">
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Model inputs — Project Alpha (Industrials)</p>
 
               {[
@@ -115,7 +115,7 @@ export default function ValuationPage() {
 
             <div className="space-y-4">
               {result ? (
-                <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm space-y-3">
+                <div className="rounded-xl border border-slate-100 bg-white p-5 space-y-3">
                   <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Valuation output</p>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center py-1.5 border-b border-slate-100">
@@ -151,7 +151,7 @@ export default function ValuationPage() {
                 </div>
               )}
 
-              <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="rounded-xl border border-slate-100 bg-white p-4">
                 <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Assumptions checklist</p>
                 <ul className="space-y-1.5 text-sm text-slate-600">
                   {[
@@ -174,10 +174,10 @@ export default function ValuationPage() {
         {activeTab === "comps" && (
           <div className="space-y-4">
             <p className="text-sm text-slate-600">Trading comparables for Nigerian industrials / cement sector. Source: NGX filings, last traded prices.</p>
-            <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50">
+                  <tr className="border-b border-slate-100 bg-white">
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Company</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">EV</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">EBITDA</th>
@@ -216,10 +216,10 @@ export default function ValuationPage() {
             <p className="text-sm text-slate-600">
               Equity value (₦bn) sensitivity to WACC (rows) and terminal growth rate (columns). Midpoint inputs: WACC 18%, growth 5%.
             </p>
-            <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50">
+                  <tr className="border-b border-slate-100 bg-white">
                     <th className="px-4 py-3 text-left font-medium text-slate-700">WACC \ Growth</th>
                     {SENSITIVITY_GROWTH.map((g) => (
                       <th key={g} className={`px-4 py-3 text-center font-medium ${g === 5 ? "text-teal-700 bg-teal-50" : "text-slate-700"}`}>{g}%</th>

@@ -64,16 +64,16 @@ export default function RebalancingPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Positions</p>
             <p className="mt-1 text-2xl font-bold text-slate-900">{ALLOCATIONS.length}</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Drift breaches</p>
             <p className={`mt-1 text-2xl font-bold ${breachCount > 0 ? "text-amber-600" : "text-emerald-600"}`}>{breachCount}</p>
             <p className="text-xs text-slate-500 mt-0.5">&gt;{DRIFT_THRESHOLD}% from target</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Tracking error</p>
             <p className="mt-1 text-2xl font-bold text-slate-900">4.2%</p>
             <p className="text-xs text-slate-500 mt-0.5">vs NGX All-Share</p>
@@ -113,10 +113,10 @@ export default function RebalancingPage() {
         </div>
 
         {/* Allocation table */}
-        <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+        <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-slate-200 bg-slate-50">
+              <tr className="border-b border-slate-100 bg-white">
                 <th className="text-left px-4 py-3 font-medium text-slate-700">Position</th>
                 <th className="text-left px-4 py-3 font-medium text-slate-700">Sector</th>
                 <th className="text-right px-4 py-3 font-medium text-slate-700">Current</th>

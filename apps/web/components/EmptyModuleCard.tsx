@@ -16,7 +16,7 @@ export default function EmptyModuleCard({
   ctaHref = "/dashboard",
 }: EmptyModuleCardProps) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-8 text-center max-w-md mx-auto">
+    <div className="rounded-xl border border-slate-100 bg-white p-8 text-center max-w-md mx-auto">
       <h3 className="font-semibold text-slate-900">{title}</h3>
       <p className="text-sm text-slate-600 mt-2">{description}</p>
       <Link

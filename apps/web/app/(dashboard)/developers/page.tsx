@@ -35,7 +35,7 @@ export default function DevelopersPage() {
         </p>
 
         <section className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-5">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Get API key</p>
             <h2 className="mt-1 font-semibold text-slate-900">Authenticate with bearer tokens</h2>
             <p className="text-sm text-slate-600 mt-2">
@@ -55,7 +55,7 @@ export default function DevelopersPage() {
             <p className="text-xs text-slate-400 mt-2">Demo UI — this button does not send requests.</p>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-5">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Base URL</p>
             <h2 className="mt-1 font-semibold text-slate-900">Stable, versioned endpoints</h2>
             <p className="text-sm text-slate-600 mt-2">
@@ -67,11 +67,11 @@ export default function DevelopersPage() {
               <span className="text-slate-400 ml-2">(example)</span>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
-              <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
+              <div className="rounded-lg border border-slate-100 bg-white px-3 py-2">
                 <p className="text-slate-500">Env</p>
                 <p className="font-semibold text-slate-800">Sandbox</p>
               </div>
-              <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
+              <div className="rounded-lg border border-slate-100 bg-white px-3 py-2">
                 <p className="text-slate-500">Auth</p>
                 <p className="font-semibold text-slate-800">Bearer</p>
               </div>
@@ -79,8 +79,8 @@ export default function DevelopersPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
-          <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 font-semibold text-slate-800 text-sm">
+        <section className="rounded-xl border border-slate-100 bg-white overflow-hidden shadow-sm">
+          <div className="px-4 py-3 border-b border-slate-100 bg-white font-semibold text-slate-800 text-sm">
             Endpoints
           </div>
           <ul className="divide-y divide-slate-100">
@@ -101,7 +101,7 @@ export default function DevelopersPage() {
         </section>
 
         <section className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-5">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Example request</p>
             <h2 className="mt-1 font-semibold text-slate-900">List workspaces</h2>
             <p className="text-sm text-slate-600 mt-2">Use a bearer token in the Authorization header.</p>
@@ -113,7 +113,7 @@ export default function DevelopersPage() {
             <p className="text-xs text-slate-400 mt-2">Demo base URL. Replace with your sandbox/prod host.</p>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-5">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Rate limits</p>
             <h2 className="mt-1 font-semibold text-slate-900">Default quotas</h2>
             <p className="text-sm text-slate-600 mt-2">Limits vary by client tier. Contact Cordros for higher throughput.</p>
@@ -140,7 +140,7 @@ export default function DevelopersPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section className="rounded-xl border border-slate-100 bg-white p-5">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Webhooks</p>
           <h2 className="mt-1 font-semibold text-slate-900">Event delivery (coming next)</h2>
           <p className="text-sm text-slate-600 mt-2">

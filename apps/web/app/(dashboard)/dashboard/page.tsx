@@ -181,7 +181,7 @@ export default function DashboardPage() {
         </div>
 
         {/* ── Market snapshot ────────────────────────────────────────── */}
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">
             <h2 className="font-semibold text-slate-900 text-sm">Market Snapshot</h2>
             <div className="flex items-center gap-1.5">
@@ -202,7 +202,7 @@ export default function DashboardPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           {/* ── Top Movers ──────────────────────────────────────────── */}
-          <div className="lg:col-span-2 rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div className="lg:col-span-2 rounded-xl border border-slate-100 bg-white">
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">
               <h2 className="font-semibold text-slate-900 text-sm">NGX Top Movers</h2>
               <Link href="/analytics" className="text-xs text-nautilus-accent hover:underline">Full analytics →</Link>
@@ -224,7 +224,7 @@ export default function DashboardPage() {
           </div>
 
           {/* ── Recent Activity ─────────────────────────────────────── */}
-          <div className="lg:col-span-3 rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div className="lg:col-span-3 rounded-xl border border-slate-100 bg-white">
             <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">
               <h2 className="font-semibold text-slate-900 text-sm">Recent Activity</h2>
               <span className="text-xs text-slate-400">All users · all modules</span>
@@ -253,7 +253,7 @@ export default function DashboardPage() {
         </div>
 
         {/* ── Module shortcuts ────────────────────────────────────────── */}
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
+        <div className="rounded-xl border border-slate-100 bg-white">
           <div className="px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">
             <h2 className="font-semibold text-slate-900 text-sm">Platform Modules</h2>
           </div>
@@ -275,7 +275,7 @@ export default function DashboardPage() {
 
         {/* ── Use cases + compliance ──────────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <h2 className="font-semibold text-slate-900 mb-1">Document Intelligence — Use Cases</h2>
             <p className="text-xs text-slate-500 mb-3">Click any to open in Co-Pilot with pre-loaded context.</p>
             <div className="grid grid-cols-2 gap-2">
@@ -299,7 +299,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm space-y-4">
+          <div className="rounded-xl border border-slate-100 bg-white p-4 space-y-4">
             <div>
               <h2 className="font-semibold text-slate-900">Pre-Trade Compliance</h2>
               <p className="text-sm text-slate-600 mt-1">
@@ -353,7 +353,7 @@ export default function DashboardPage() {
       {/* Compliance modal */}
       {complianceModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={() => setComplianceModalOpen(false)}>
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-xl max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
+          <div className="rounded-xl border border-slate-100 bg-white p-6 shadow-xl max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
             <h3 className="font-semibold text-slate-900 text-base">Pre-Trade Compliance Check</h3>
             <p className="text-sm text-slate-500 mt-0.5">Checking fund: {fund?.fundName ?? "All funds"}</p>
             {complianceLoading ? (

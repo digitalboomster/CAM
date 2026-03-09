@@ -64,7 +64,7 @@ export default function TemplatesPage() {
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {TEMPLATES.map((t) => (
-          <div key={t.id} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div key={t.id} className="rounded-xl border border-slate-100 bg-white p-5">
             <h3 className="font-semibold text-slate-900">{t.name}</h3>
             <p className="text-sm text-slate-600 mt-2">{t.description}</p>
             <p className="text-xs text-slate-500 mt-2">Columns: {t.columns.join(", ")}</p>

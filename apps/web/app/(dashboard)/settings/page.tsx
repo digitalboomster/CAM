@@ -37,7 +37,7 @@ export default function SettingsPage() {
 
   return (
     <ModuleShell title="Settings" subtitle="Workspace, export, and compliance preferences — Shariah & ESG guardrails (see Nautilus modules)">
-      <div className="max-w-xl rounded-xl border border-slate-200 bg-white p-5 shadow-sm space-y-4">
+      <div className="max-w-xl rounded-xl border border-slate-100 bg-white p-5 space-y-4">
         {/* Theme */}
         <div className="flex items-center justify-between">
           <div>

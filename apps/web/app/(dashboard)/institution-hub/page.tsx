@@ -94,15 +94,15 @@ export default function InstitutionHubPage() {
       <div className="space-y-5 max-w-4xl">
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4">
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Total clients</p>
             <p className="mt-1 text-2xl font-bold text-slate-900">{CLIENTS.length}</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Compliant</p>
             <p className="mt-1 text-2xl font-bold text-emerald-600">{CLIENTS.filter((c) => c.compliance === "compliant").length}</p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-4">
             <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">Breaches / Watch</p>
             <p className="mt-1 text-2xl font-bold text-red-600">{CLIENTS.filter((c) => c.compliance !== "compliant").length}</p>
           </div>
@@ -129,7 +129,7 @@ export default function InstitutionHubPage() {
         {activeTab === "clients" && (
           <div className="space-y-3">
             {CLIENTS.map((c) => (
-              <div key={c.id} className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+              <div key={c.id} className="rounded-xl border border-slate-100 bg-white overflow-hidden">
                 <div
                   className="px-5 py-4 flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/50"
                   onClick={() => setSelected(selected === c.id ? null : c.id)}
@@ -226,10 +226,10 @@ export default function InstitutionHubPage() {
             <p className="text-sm text-slate-600">
               Mandate adherence status across all clients. Breaches require immediate review and client communication.
             </p>
-            <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50">
+                  <tr className="border-b border-slate-100 bg-white">
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Client</th>
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Mandate limit</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">Current equity</th>

@@ -172,7 +172,7 @@ export default function ReportsPage() {
             { label: "This week", value: "5", sub: "Mar 4–8, 2026" },
             { label: "Last export", value: "Today", sub: "Project Alpha IC Memo v2" },
           ].map((s) => (
-            <div key={s.label} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div key={s.label} className="rounded-xl border border-slate-100 bg-white p-4">
               <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">{s.label}</p>
               <p className="mt-0.5 text-2xl font-bold text-slate-900">{s.value}</p>
               <p className="text-xs text-slate-500 mt-0.5">{s.sub}</p>
@@ -256,7 +256,7 @@ export default function ReportsPage() {
               <h2 className="font-semibold text-slate-900">Generate Report</h2>
               <p className="text-sm text-slate-500 mt-0.5">Select a template and workspace. Opens Document Intelligence with Co-Pilot pre-loaded.</p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm space-y-4">
+            <div className="rounded-xl border border-slate-100 bg-white p-5 space-y-4">
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Report template</label>
                 <div className="grid grid-cols-1 gap-2">
@@ -371,10 +371,10 @@ export default function ReportsPage() {
                 Loading audit log…
               </div>
             ) : (
-              <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+              <div className="rounded-xl border border-slate-100 bg-white overflow-hidden shadow-sm">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-slate-200 bg-slate-50/80">
+                    <tr className="border-b border-slate-100 bg-white/80">
                       <th className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Date</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Report</th>
                       <th className="text-left px-4 py-3 text-xs font-semibold text-slate-600 uppercase tracking-wide">Template</th>

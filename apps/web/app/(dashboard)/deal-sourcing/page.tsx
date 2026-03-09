@@ -122,7 +122,7 @@ export default function DealSourcingPage() {
       action={{ label: "Document Intelligence", href: "/workspace" }}
     >
       <div className="space-y-4">
-        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="rounded-xl border border-slate-100 bg-white p-4">
           <div className="flex flex-col sm:flex-row gap-3">
             <input
               type="search"
@@ -172,7 +172,7 @@ export default function DealSourcingPage() {
             <button type="button" onClick={load} className="mt-3 px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-100 text-amber-800 hover:bg-amber-200">Try again</button>
           </div>
         ) : filtered.length === 0 ? (
-          <div className="rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+          <div className="rounded-xl border border-slate-100 bg-white p-8 text-center shadow-sm">
             <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
               <svg className="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -204,10 +204,10 @@ export default function DealSourcingPage() {
             </div>
           </div>
         ) : (
-          <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+          <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
+                <tr className="border-b border-slate-100 bg-white">
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Fit score</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Name</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Summary</th>

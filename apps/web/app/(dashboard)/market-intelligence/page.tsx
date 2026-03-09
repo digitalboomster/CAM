@@ -123,7 +123,7 @@ export default function MarketIntelligencePage() {
 
             <div className="space-y-3">
               {filtered.map((r) => (
-                <div key={r.id} className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                <div key={r.id} className="rounded-xl border border-slate-100 bg-white overflow-hidden">
                   <div
                     className="px-5 py-4 cursor-pointer hover:bg-slate-50/50 transition-colors"
                     onClick={() => setExpanded(expanded === r.id ? null : r.id)}
@@ -198,10 +198,10 @@ export default function MarketIntelligencePage() {
             <p className="text-sm text-slate-600">
               AUM and sentiment tracking for key Nigerian asset managers. Data sourced from public filings and SEC Nigeria disclosures.
             </p>
-            <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+            <div className="rounded-xl border border-slate-100 bg-white overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50">
+                  <tr className="border-b border-slate-100 bg-white">
                     <th className="text-left px-4 py-3 font-medium text-slate-700">Manager</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">AUM</th>
                     <th className="text-right px-4 py-3 font-medium text-slate-700">YoY change</th>

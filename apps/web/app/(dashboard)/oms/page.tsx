@@ -88,7 +88,7 @@ export default function OmsPage() {
             { label: "Pending", value: BLOTTER.filter((o) => o.status === "pending").length.toString() },
             { label: "Rejected", value: BLOTTER.filter((o) => o.status === "rejected").length.toString() },
           ].map((s, i) => (
-            <div key={i} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div key={i} className="rounded-xl border border-slate-100 bg-white p-4">
               <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">{s.label}</p>
               <p className={`mt-1 text-2xl font-bold ${s.label === "Rejected" && s.value !== "0" ? "text-red-600" : s.label === "Pending" ? "text-blue-600" : s.label === "Executed" ? "text-emerald-600" : "text-slate-900"}`}>
                 {s.realValue ?? s.value}
@@ -116,10 +116,10 @@ export default function OmsPage() {
         </div>
 
         {activeTab === "blotter" && (
-          <div className="rounded-xl border border-slate-200 bg-white overflow-x-auto">
+          <div className="rounded-xl border border-slate-100 bg-white overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
+                <tr className="border-b border-slate-100 bg-white">
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Order ID</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Security</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-700">Fund</th>
@@ -164,7 +164,7 @@ export default function OmsPage() {
         )}
 
         {activeTab === "entry" && (
-          <div className="max-w-lg rounded-xl border border-slate-200 bg-white p-5 shadow-sm space-y-4">
+          <div className="max-w-lg rounded-xl border border-slate-100 bg-white p-5 space-y-4">
             <p className="text-sm text-slate-600">Enter order details. Pre-trade compliance check is mandatory before submission.</p>
 
             <div className="grid grid-cols-2 gap-4">
