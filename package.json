@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "npm run dev --prefix apps/web",
     "dev:clean": "npm run dev:clean --prefix apps/web",
-    "build": "npm run build --prefix apps/web",
+    "build": "npm install --prefix apps/web && npm run build --prefix apps/web",
     "db:setup": "npm run db:setup --prefix apps/web",
     "flutter": "cd apps/flutter && flutter pub get && flutter run"
   }
