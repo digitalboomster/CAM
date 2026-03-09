@@ -194,7 +194,7 @@ export default function WorkspaceGrid({
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-slate-100">
-                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-slate-400 uppercase tracking-wider min-w-[240px] sticky left-0 bg-slate-50 z-20 shadow-[4px_0_6px_-2px_rgba(0,0,0,0.06)]">
+                <th className="px-4 py-2.5 text-left text-[11px] font-semibold text-slate-400 uppercase tracking-wider min-w-[240px] sticky left-0 z-20 isolate bg-[#f8fafc] shadow-[4px_0_6px_-2px_rgba(0,0,0,0.08)]">
                   Source
                 </th>
                 {visibleColumns.map((col) => (
@@ -240,11 +240,13 @@ export default function WorkspaceGrid({
                 rows.map((row) => (
                   <tr
                     key={row.id}
-                    className="group/row hover:bg-slate-50/60 transition-colors"
+                    className="group/row hover:bg-slate-50 transition-colors"
                   >
-                    {/* Source cell — sticky; higher z and shadow so scrolled columns don't overlap */}
-                    <td className="px-4 py-3 sticky left-0 z-20 bg-white group-hover/row:bg-slate-50/95 transition-colors border-r border-slate-100 shadow-[4px_0_6px_-2px_rgba(0,0,0,0.06)]">
-                      <SourceCell row={row} />
+                    {/* Source cell — sticky; fully opaque so scrolled columns never show through */}
+                    <td className="px-4 py-3 sticky left-0 z-20 isolate bg-[#ffffff] group-hover/row:bg-[#f8fafc] transition-colors border-r border-slate-200 shadow-[4px_0_8px_-2px_rgba(0,0,0,0.08)]">
+                      <div className="min-h-full min-w-full bg-inherit">
+                        <SourceCell row={row} />
+                      </div>
                     </td>
 
                     {/* Extraction cells */}
