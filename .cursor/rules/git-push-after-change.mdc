@@ -1,0 +1,13 @@
+---
+description: Always commit and push to git after making code changes
+alwaysApply: true
+---
+
+# Git: Push After Change
+
+After completing code changes in this project:
+
+1. **Commit** all modified/added files with a clear, concise message (e.g. `fix: …`, `feat: …`).
+2. **Push** to the remote (e.g. `git push` or `git push origin main`).
+
+Do not leave changes uncommitted or unpushed unless the user explicitly says they will handle git themselves. Treat "code updated" as incomplete until changes are pushed.

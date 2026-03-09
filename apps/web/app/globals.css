@@ -7,7 +7,7 @@
   --nautilus-surface: #ffffff;
   --nautilus-border: #e2e8f0;
   --nautilus-primary: #0d9488;
-  --nautilus-accent: #b91c1c;
+  --nautilus-accent: #0d9488;
   --nautilus-text: #0f172a;
   --nautilus-muted: #64748b;
   color-scheme: light;
@@ -18,7 +18,7 @@ html.dark {
   --nautilus-surface: #1e293b;
   --nautilus-border: #334155;
   --nautilus-primary: #14b8a6;
-  --nautilus-accent: #ef4444;
+  --nautilus-accent: #14b8a6;
   --nautilus-text: #f1f5f9;
   --nautilus-muted: #94a3b8;
   color-scheme: dark;

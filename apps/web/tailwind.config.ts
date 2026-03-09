@@ -17,10 +17,10 @@ const config: Config = {
           "slate-light": "#f1f5f9",
           pill: "#e2e8f0",
           "pill-text": "#334155",
-          /* Cordros / institutional accent: primary actions (Generate, Export, Send) */
-          accent: "#b91c1c",
-          "accent-hover": "#991b1b",
-          "accent-muted": "#fef2f2",
+          /* Primary accent: teal (easy on the eyes) */
+          accent: "#0d9488",
+          "accent-hover": "#0f766e",
+          "accent-muted": "#f0fdfa",
         },
       },
     },
