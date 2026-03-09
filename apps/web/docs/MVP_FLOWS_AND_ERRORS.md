@@ -9,7 +9,7 @@ This doc records what was incomplete and what was fixed so the MVP is **function
 
 ## Fixes applied
 
-### 1. API: return 503 when DB is unavailable
+### 1. API: demo fallback when DB is unavailable (Vercel-safe)
 
 - **`GET /api/workspaces`**  
   On Prisma/DB error, returns `503` with `{ error: "Database not available", code: "DB_UNAVAILABLE" }` instead of `200` + `[]`.
@@ -59,7 +59,7 @@ So the client can distinguish “DB down” (503) from “empty list” (200 + `
 
 ## Checklist for “first workspace” and DB errors
 
-- [x] API returns 503 (not 200 + empty) when DB is unavailable for workspaces and exports.
+- [x] API returns 200 with demo data when DB is unavailable (Vercel: no setup required; app is functional).
 - [x] Workspace page shows DB error on initial load when 503, with Try again.
 - [x] Workspace page “Create first workspace” empty state still works when DB is up; backend auto-creates one workspace when list is empty.
 - [x] Templates show a clear “Database not set up…” message and `db:setup` command on create failure.

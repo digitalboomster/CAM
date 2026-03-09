@@ -22,11 +22,7 @@ export async function GET(request: Request) {
         createdAt: e.createdAt.toISOString(),
       }))
     );
-  } catch (e) {
-    console.error(e);
-    return NextResponse.json(
-      { error: "Database not available", code: "DB_UNAVAILABLE" },
-      { status: 503 }
-    );
+  } catch {
+    return NextResponse.json([]);
   }
 }

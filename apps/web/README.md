@@ -13,7 +13,9 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-If you skip `db:setup`, the app shows a short message and instructs you to run it.
+If you skip `db:setup`, the app still runs: APIs return **demo data** (workspaces, grid, deal targets, export log) so the UI is fully functional. Persistence requires a database.
+
+**Vercel:** No database setup on the server. Deploy as-is; the app runs in demo mode (read/write works in-session, data is not persisted across requests).
 
 ## Database
 

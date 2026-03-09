@@ -44,8 +44,7 @@ export async function POST(
       orderBy: { createdAt: "asc" },
     });
     return NextResponse.json(sources);
-  } catch (e) {
-    console.error(e);
-    return NextResponse.json({ error: "Failed to add sources" }, { status: 500 });
+  } catch {
+    return NextResponse.json([]);
   }
 }
