@@ -11,7 +11,7 @@ const MODULES = [
   { id: "portfolios", name: "Whole Portfolio Engine", description: "Single-pane-of-glass view of every Naira under management. Unifies IBOR and ABOR.", href: "/portfolios", status: "live" as const },
   { id: "copilot", name: "Nautilus Co-Pilot", description: "GenAI Augmented Analyst. Translates complex quant data into natural language.", href: "/workspace", status: "live" as const },
   { id: "personalization", name: "Personalization at Scale", description: "Automate construction and daily rebalancing of thousands of individual portfolios (55ip logic).", href: "/rebalancing", status: "live" as const },
-  { id: "api", name: "API Storefront", description: "API-first platform. Fintechs, insurers, PFAs plug into Cordros regulated investment products.", href: "/developers", status: "live" as const },
+  { id: "api", name: "API Storefront", description: "API-first platform. Fintechs, insurers, PFAs plug into SABB-CM regulated investment products.", href: "/developers", status: "live" as const },
   { id: "shariah", name: "Shariah & ESG Guardrails", description: "Ethics middleware: scan assets for AAOIFI/ESG compliance. Zero-error Halal fund management.", href: "/shariah-esg", status: "live" as const },
   { id: "multicurrency", name: "Multi-Currency Real-Return Analytics", description: "NGN, USD, Gold-backed; devaluation-adjusted returns.", href: "#", status: "coming_soon" as const },
   { id: "compliance", name: "Pre-Trade Compliance Kill-Switch", description: "Hard-coded layer that blocks any trade exceeding SEC limits or fund mandate concentrations.", href: "/dashboard", status: "live" as const },
@@ -33,7 +33,7 @@ export default function PlatformPage() {
     >
       <div className="max-w-3xl space-y-4">
         <p className="text-sm text-slate-600">
-          Central nervous system of Cordros Asset Management. From asset picker to platform provider.
+          Central nervous system of SABB-CM Asset Management. From asset picker to platform provider.
         </p>
         <ul className="space-y-3">
           {MODULES.map((m) => (

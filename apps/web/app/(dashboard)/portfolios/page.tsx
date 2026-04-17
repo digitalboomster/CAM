@@ -6,9 +6,9 @@ import Link from "next/link";
 import { useFund } from "@/contexts/FundContext";
 
 const MOCK_PORTFOLIOS = [
-  { id: "milestone-2023", name: "Cordros Milestone Fund 2023", mandate: "Equity growth, Nigeria & SSA", allocation: "Equity 78%, Cash 22%" },
-  { id: "growth", name: "Cordros Growth Fund", mandate: "Multi-asset growth", allocation: "Equity 65%, Fixed income 25%, Cash 10%" },
-  { id: "fixed-income", name: "Cordros Fixed Income Fund", mandate: "Capital preservation, yield", allocation: "Fixed income 85%, Cash 15%" },
+  { id: "milestone-2023", name: "SABB-CM Milestone Fund 2023", mandate: "Equity growth, Nigeria & SSA", allocation: "Equity 78%, Cash 22%" },
+  { id: "growth", name: "SABB-CM Growth Fund", mandate: "Multi-asset growth", allocation: "Equity 65%, Fixed income 25%, Cash 10%" },
+  { id: "fixed-income", name: "SABB-CM Fixed Income Fund", mandate: "Capital preservation, yield", allocation: "Fixed income 85%, Cash 15%" },
 ];
 
 const MOCK_FUND_METRICS: Record<string, { aum: string; nav: string; navAsOf: string; ytd: string; ytdUp: boolean }> = {

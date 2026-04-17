@@ -45,7 +45,7 @@ const MOCK_RECENT_REPORTS = [
     id: "r004",
     title: "West African Cement — Research Brief",
     template: "Research Brief",
-    workspace: "Cordros Sector Research",
+    workspace: "SABB-CM Sector Research",
     author: "SA",
     date: "Mar 5, 2026",
     status: "draft",

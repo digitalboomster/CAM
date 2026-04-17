@@ -41,7 +41,7 @@ export default function Home() {
         <section className="flex-1 flex flex-col items-center justify-center px-6 py-20 text-center max-w-5xl mx-auto w-full">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-nautilus-accent-muted text-nautilus-accent border border-nautilus-accent/30 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-nautilus-accent" />
-            Cordros Asset Management
+            SABB-CM Asset Management
           </span>
 
           <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.05] max-w-3xl text-slate-900">
@@ -113,7 +113,7 @@ export default function Home() {
       <footer className="border-t border-slate-100 py-5 px-6">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
           <span>Built for the Nigerian investment ecosystem.</span>
-          <span>© Cordros Asset Management · Nautilus v1</span>
+          <span>© SABB-CM Asset Management · Nautilus v1</span>
         </div>
       </footer>
 

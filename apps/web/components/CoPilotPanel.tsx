@@ -67,8 +67,8 @@ const RESPONSES: { match: string[]; title: string; answer: string[] }[] = [
       "**Medium:** Ogun plant land dispute — 4.2 hectares in dispute with Ogun State Government. Contractor claim NGN320m in arbitration (Legal DD p.7).",
       "**Medium:** Kenya investment licence pending — could delay East Africa expansion timeline by 6–12 months (CIM v3 §9).",
       "**Medium:** EBITDA margin compression — Q4 2025 margin 22.1% vs 26.3% in Q3. Energy cost spike NGN640m not fully explained by LPG conversion timeline (Board Deck Q4 2025).",
-      "**Low:** Sector overcapacity risk if 8 announced cement plants commissioned 2026–2028 (Cordros Sector Research p.12).",
-      "Sources: CIM v3, Legal DD, Management Accounts Dec 2025, Board Deck Q4 2025, Dangote FY2025 Annual Report, Cordros Sector Research.",
+      "**Low:** Sector overcapacity risk if 8 announced cement plants commissioned 2026–2028 (SABB-CM Sector Research p.12).",
+      "Sources: CIM v3, Legal DD, Management Accounts Dec 2025, Board Deck Q4 2025, Dangote FY2025 Annual Report, SABB-CM Sector Research.",
     ],
   },
   {
@@ -77,7 +77,7 @@ const RESPONSES: { match: string[]; title: string; answer: string[] }[] = [
     answer: [
       "**Valuation analysis based on source documents:**",
       "**DCF:** At 18% WACC and 5% terminal growth, equity value range NGN1,180bn–NGN1,490bn. Midpoint NGN1,335bn. Implied EV/EBITDA 10.8×.",
-      "**Trading comps:** Dangote Cement 11.0×, BUA Cement 10.6×, Lafarge Africa 10.3×. Sector median 10.6× (Cordros Sector Research p.18).",
+      "**Trading comps:** Dangote Cement 11.0×, BUA Cement 10.6×, Lafarge Africa 10.3×. Sector median 10.6× (SABB-CM Sector Research p.18).",
       "**Precedent transactions:** 8 West African industrial deals 2020–2025 at 8.5–14.2×, median 11.4×. Tech-enabled premium +1.8× vs traditional industrials (Precedent Transactions p.8).",
       "**Project Alpha asking price:** 12.8× EV/EBITDA on LTM EBITDA NGN28.4bn → implied EV NGN364bn, equity value NGN346bn (net of NGN18.2bn net debt). Supported by comparable TechBridge deal (12.8×) but above sector median.",
       "**Recommendation:** Negotiate to 11.8–12.2× with earn-out structure bridging gap. Represents NGN14–24bn reduction in upfront consideration.",
@@ -87,13 +87,13 @@ const RESPONSES: { match: string[]; title: string; answer: string[] }[] = [
     match: ["research", "synthesis", "sector", "market", "cement", "industry"],
     title: "Research Synthesis — Nigerian Cement Sector",
     answer: [
-      "**Key findings from Cordros Sector Research (Feb 2026):**",
+      "**Key findings from SABB-CM Sector Research (Feb 2026):**",
       "Total sector revenue NGN2.1tn in 2025 (+16% YoY). Dangote 47% market share, BUA Cement 28%, Lafarge Africa 12%.",
       "**Demand drivers:** Federal Government road programme (22,000km) + housing scheme (500,000 units) underpins 8–10% pa demand growth to 2028. Urbanisation rate 5.2% pa provides structural tailwind.",
       "**Risks:** FX exposure on imported clinker (35–40% COGS). Overcapacity risk if all 8 announced plants commissioned 2026–2028. Infrastructure spend linked to oil price via federation account.",
       "**Top picks:** DANGCEM Buy, 12m TP NGN420 (+24% upside). BUACEMENT Hold, TP NGN395 (+4% upside).",
       "**Regional context:** Nigerian cement trades at premium to regional peers (9.8× Kenya, 8.7× South Africa) on liquidity and scale. Pan-African expansion a key differentiator for Dangote.",
-      "Source: Nigerian Cement Sector Research — Cordros, Feb 2026.",
+      "Source: Nigerian Cement Sector Research — SABB-CM, Feb 2026.",
     ],
   },
   {

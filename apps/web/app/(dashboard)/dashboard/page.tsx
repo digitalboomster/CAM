@@ -340,7 +340,7 @@ export default function DashboardPage() {
 
         {/* ── Trust bar ───────────────────────────────────────────────── */}
         <div className="rounded-lg border border-slate-200 bg-slate-50/80 px-4 py-2.5 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs text-slate-500">
-          <span className="font-semibold text-slate-700">Nautilus · Cordros Asset Management</span>
+          <span className="font-semibold text-slate-700">Nautilus · SABB-CM Asset Management</span>
           <span className="text-slate-300">|</span>
           <span>Total transparency — trace every action to source</span>
           <span className="text-slate-300">|</span>

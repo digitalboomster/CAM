@@ -19,7 +19,7 @@ interface Doc {
 const MOCK_DOCS: Doc[] = [
   { id: "d1", name: "Dangote_Cement_FY2025_Annual_Report.pdf", type: "Annual Report", size: "4.2 MB", uploaded: "Mar 6, 2026", status: "processed", extractedFields: 48, destination: "IC Memo workspace" },
   { id: "d2", name: "MTN_Nigeria_Q4_2025_Results.pdf", type: "Financial Statement", size: "2.1 MB", uploaded: "Mar 6, 2026", status: "processed", extractedFields: 32, destination: "Earnings Analysis" },
-  { id: "d3", name: "Cordros_Milestone_Fund_Dec2025_NAV.xlsx", type: "NAV Report", size: "0.8 MB", uploaded: "Mar 5, 2026", status: "processed", extractedFields: 22, destination: "Portfolio workspace" },
+  { id: "d3", name: "SABB-CM_Milestone_Fund_Dec2025_NAV.xlsx", type: "NAV Report", size: "0.8 MB", uploaded: "Mar 5, 2026", status: "processed", extractedFields: 22, destination: "Portfolio workspace" },
   { id: "d4", name: "SEC_Nigeria_CIS_Guidelines_Feb2026.pdf", type: "Regulatory", size: "1.4 MB", uploaded: "Mar 5, 2026", status: "processing", extractedFields: 0, destination: "Compliance workspace" },
   { id: "d5", name: "Project_Alpha_CIM_Draft_v3.pdf", type: "CIM", size: "6.7 MB", uploaded: "Mar 4, 2026", status: "processing", extractedFields: 0, destination: "M&A workspace" },
   { id: "d6", name: "GTCO_FY2025_Audited_Accounts.pdf", type: "Financial Statement", size: "3.8 MB", uploaded: "Mar 3, 2026", status: "queued", extractedFields: 0, destination: "Unassigned" },

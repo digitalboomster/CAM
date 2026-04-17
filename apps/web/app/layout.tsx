@@ -3,7 +3,7 @@ import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Nautilus | Cordros Asset Management",
+  title: "Nautilus | SABB-CM Asset Management",
   description: "Wealth Operating System for the Nigerian investment ecosystem. Document Intelligence, Co-Pilot, and institutional-grade compliance.",
 };
 

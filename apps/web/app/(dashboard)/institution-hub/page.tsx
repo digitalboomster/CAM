@@ -29,7 +29,7 @@ const CLIENTS = [
   },
   {
     id: "c3",
-    name: "Cordros Capital Endowment",
+    name: "SABB-CM Capital Endowment",
     type: "Endowment",
     aum: "₦9.1bn",
     mandate: "Long-term growth, equity 60–80%",

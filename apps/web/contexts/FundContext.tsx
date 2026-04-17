@@ -3,9 +3,9 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from "react";
 
 export const FUND_LIST = [
-  { id: "milestone-2023", name: "Cordros Milestone Fund 2023" },
-  { id: "growth", name: "Cordros Growth Fund" },
-  { id: "fixed-income", name: "Cordros Fixed Income Fund" },
+  { id: "milestone-2023", name: "SABB-CM Milestone Fund 2023" },
+  { id: "growth", name: "SABB-CM Growth Fund" },
+  { id: "fixed-income", name: "SABB-CM Fixed Income Fund" },
 ] as const;
 
 export type FundId = (typeof FUND_LIST)[number]["id"];

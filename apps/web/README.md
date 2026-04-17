@@ -1,6 +1,6 @@
 # Nautilus Web (MVP)
 
-Hebbia-style Matrix UI for Cordros Asset Management. See `docs/HEBBIA_UI_RESEARCH.md` for the design reference.
+Hebbia-style Matrix UI for SABB-CM Asset Management. See `docs/HEBBIA_UI_RESEARCH.md` for the design reference.
 
 ## Run
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ModuleShell from "@/components/ModuleShell";
 
-const SUPPORT_EMAIL = "api@cordros.com";
+const SUPPORT_EMAIL = "api@sabb-cm.com";
 const REQUEST_TEMPLATE = `Subject: Nautilus API key request
 
 Organization:
@@ -63,7 +63,7 @@ export default function DevelopersPage() {
     >
       <div className="max-w-3xl space-y-6">
         <p className="text-sm text-slate-600">
-          Nautilus is an API-first platform. Fintechs, insurance companies, and PFAs can plug into Cordros regulated investment products. This page documents the main endpoints for integration.
+          Nautilus is an API-first platform. Fintechs, insurance companies, and PFAs can plug into SABB-CM regulated investment products. This page documents the main endpoints for integration.
         </p>
 
         <section className="grid gap-4 sm:grid-cols-2">
@@ -71,7 +71,7 @@ export default function DevelopersPage() {
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Get API key</p>
             <h2 className="mt-1 font-semibold text-slate-900">Authenticate with bearer tokens</h2>
             <p className="text-sm text-slate-600 mt-2">
-              Request production credentials from Cordros. Keys are scoped per client and environment (sandbox vs production).
+              Request production credentials from SABB-CM. Keys are scoped per client and environment (sandbox vs production).
             </p>
             <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
               <span className="text-slate-400 mr-2">Example key</span>
@@ -106,7 +106,7 @@ export default function DevelopersPage() {
             </p>
             <div className="mt-3 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700">
               <span className="text-slate-400 mr-2">API</span>
-              <code className="bg-slate-200 px-1.5 py-0.5 rounded">https://api.nautilus.cordros.com</code>
+              <code className="bg-slate-200 px-1.5 py-0.5 rounded">https://api.nautilus.sabb-cm.com</code>
               <span className="text-slate-400 ml-2">(example)</span>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
@@ -149,7 +149,7 @@ export default function DevelopersPage() {
             <h2 className="mt-1 font-semibold text-slate-900">List workspaces</h2>
             <p className="text-sm text-slate-600 mt-2">Use a bearer token in the Authorization header.</p>
             <pre className="mt-3 text-xs bg-slate-950 text-slate-100 rounded-lg p-3 overflow-auto">
-{`curl -s https://api.nautilus.cordros.com/v1/workspaces \\
+{`curl -s https://api.nautilus.sabb-cm.com/v1/workspaces \\
   -H \"Authorization: Bearer <API_KEY>\" \\
   -H \"Content-Type: application/json\"`}
             </pre>
@@ -159,7 +159,7 @@ export default function DevelopersPage() {
           <div className="rounded-xl border border-slate-100 bg-white p-5">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Rate limits</p>
             <h2 className="mt-1 font-semibold text-slate-900">Default quotas</h2>
-            <p className="text-sm text-slate-600 mt-2">Limits vary by client tier. Contact Cordros for higher throughput.</p>
+            <p className="text-sm text-slate-600 mt-2">Limits vary by client tier. Contact SABB-CM for higher throughput.</p>
             <div className="mt-3 rounded-lg border border-slate-200 overflow-hidden">
               <table className="w-full text-sm">
                 <thead>

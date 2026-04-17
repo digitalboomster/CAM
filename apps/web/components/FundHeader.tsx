@@ -12,7 +12,7 @@ export default function FundHeader() {
         <Link href="/dashboard" className="flex items-center gap-2">
           <span className="text-[13px] font-semibold text-slate-800 tracking-tight">Nautilus</span>
           <span className="text-slate-200">·</span>
-          <span className="text-[13px] text-slate-500">Cordros Asset Management</span>
+          <span className="text-[13px] text-slate-500">SABB-CM Asset Management</span>
           <span className="text-slate-200 hidden sm:inline">·</span>
           <span className="text-xs text-slate-400 hidden sm:inline">Institutional intelligence</span>
         </Link>

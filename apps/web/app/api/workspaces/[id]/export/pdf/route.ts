@@ -96,7 +96,7 @@ export async function GET(
     doc.setTextColor(100, 100, 100);
     doc.text("Produced by Nautilus Matrix Agent. Citations and source references are stored in the platform export log.", margin, y);
     doc.text("Each cell is traceable to source document and agent step in the platform.", margin, y + lineH);
-    doc.text("Nautilus | Cordros Asset Management", margin, y + lineH * 2);
+    doc.text("Nautilus | SABB-CM Asset Management", margin, y + lineH * 2);
 
     const buf = doc.output("arraybuffer");
     return new NextResponse(buf, {

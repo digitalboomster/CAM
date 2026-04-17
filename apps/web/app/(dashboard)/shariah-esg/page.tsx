@@ -10,9 +10,9 @@ const SHARIAH_STATS = [
 ];
 
 const RECENT_AUDIT = [
-  { at: "Today 08:42", fund: "Cordros Halal Equity", result: "Pass", detail: "Full AAOIFI screen" },
-  { at: "Today 06:15", fund: "Cordros ESG Balanced", result: "Pass", detail: "ESG overlay applied" },
-  { at: "Mar 8 23:00", fund: "Cordros Halal Equity", result: "Pass", detail: "End-of-day recheck" },
+  { at: "Today 08:42", fund: "SABB-CM Halal Equity", result: "Pass", detail: "Full AAOIFI screen" },
+  { at: "Today 06:15", fund: "SABB-CM ESG Balanced", result: "Pass", detail: "ESG overlay applied" },
+  { at: "Mar 8 23:00", fund: "SABB-CM Halal Equity", result: "Pass", detail: "End-of-day recheck" },
 ];
 
 export default function ShariahESGPage() {
